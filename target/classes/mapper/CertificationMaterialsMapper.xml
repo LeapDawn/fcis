@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="g11.dao.CertificationMaterialsDAO">
+  <resultMap id="BaseResultMap" type="g11.model.CertificationMaterials">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="grant_unit" jdbcType="VARCHAR" property="grantUnit" />
+    <result column="grant_time" jdbcType="DATE" property="grantTime" />
+    <result column="file_name_number" jdbcType="VARCHAR" property="fileNameNumber" />
+    <result column="issuing_unit" jdbcType="VARCHAR" property="issuingUnit" />
+    <result column="profile_name" jdbcType="VARCHAR" property="profileName" />
+    <result column="treatment" jdbcType="VARCHAR" property="treatment" />
+    <result column="deed_briefing" jdbcType="VARCHAR" property="deedBriefing" />
+    <result column="certification_base" jdbcType="VARCHAR" property="certificationBase" />
+    <result column="opinion" jdbcType="VARCHAR" property="opinion" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, grant_unit, grant_time, file_name_number, issuing_unit, profile_name, treatment, 
+    deed_briefing, certification_base, opinion
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from certification_materials
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from certification_materials
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="g11.model.CertificationMaterials">
+    insert into certification_materials (id, grant_unit, grant_time, 
+      file_name_number, issuing_unit, profile_name, 
+      treatment, deed_briefing, certification_base, 
+      opinion)
+    values (#{id,jdbcType=VARCHAR}, #{grantUnit,jdbcType=VARCHAR}, #{grantTime,jdbcType=DATE}, 
+      #{fileNameNumber,jdbcType=VARCHAR}, #{issuingUnit,jdbcType=VARCHAR}, #{profileName,jdbcType=VARCHAR}, 
+      #{treatment,jdbcType=VARCHAR}, #{deedBriefing,jdbcType=VARCHAR}, #{certificationBase,jdbcType=VARCHAR}, 
+      #{opinion,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="g11.model.CertificationMaterials">
+    insert into certification_materials
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="grantUnit != null">
+        grant_unit,
+      </if>
+      <if test="grantTime != null">
+        grant_time,
+      </if>
+      <if test="fileNameNumber != null">
+        file_name_number,
+      </if>
+      <if test="issuingUnit != null">
+        issuing_unit,
+      </if>
+      <if test="profileName != null">
+        profile_name,
+      </if>
+      <if test="treatment != null">
+        treatment,
+      </if>
+      <if test="deedBriefing != null">
+        deed_briefing,
+      </if>
+      <if test="certificationBase != null">
+        certification_base,
+      </if>
+      <if test="opinion != null">
+        opinion,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="grantUnit != null">
+        #{grantUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="grantTime != null">
+        #{grantTime,jdbcType=DATE},
+      </if>
+      <if test="fileNameNumber != null">
+        #{fileNameNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="issuingUnit != null">
+        #{issuingUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="profileName != null">
+        #{profileName,jdbcType=VARCHAR},
+      </if>
+      <if test="treatment != null">
+        #{treatment,jdbcType=VARCHAR},
+      </if>
+      <if test="deedBriefing != null">
+        #{deedBriefing,jdbcType=VARCHAR},
+      </if>
+      <if test="certificationBase != null">
+        #{certificationBase,jdbcType=VARCHAR},
+      </if>
+      <if test="opinion != null">
+        #{opinion,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="g11.model.CertificationMaterials">
+    update certification_materials
+    <set>
+      <if test="grantUnit != null">
+        grant_unit = #{grantUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="grantTime != null">
+        grant_time = #{grantTime,jdbcType=DATE},
+      </if>
+      <if test="fileNameNumber != null">
+        file_name_number = #{fileNameNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="issuingUnit != null">
+        issuing_unit = #{issuingUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="profileName != null">
+        profile_name = #{profileName,jdbcType=VARCHAR},
+      </if>
+      <if test="treatment != null">
+        treatment = #{treatment,jdbcType=VARCHAR},
+      </if>
+      <if test="deedBriefing != null">
+        deed_briefing = #{deedBriefing,jdbcType=VARCHAR},
+      </if>
+      <if test="certificationBase != null">
+        certification_base = #{certificationBase,jdbcType=VARCHAR},
+      </if>
+      <if test="opinion != null">
+        opinion = #{opinion,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="g11.model.CertificationMaterials">
+    update certification_materials
+    set grant_unit = #{grantUnit,jdbcType=VARCHAR},
+      grant_time = #{grantTime,jdbcType=DATE},
+      file_name_number = #{fileNameNumber,jdbcType=VARCHAR},
+      issuing_unit = #{issuingUnit,jdbcType=VARCHAR},
+      profile_name = #{profileName,jdbcType=VARCHAR},
+      treatment = #{treatment,jdbcType=VARCHAR},
+      deed_briefing = #{deedBriefing,jdbcType=VARCHAR},
+      certification_base = #{certificationBase,jdbcType=VARCHAR},
+      opinion = #{opinion,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

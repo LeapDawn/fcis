@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="g11.dao.AdvancedCollectiveDAO">
+  <resultMap id="BaseResultMap" type="g11.model.AdvancedCollective">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="honorary_title" jdbcType="VARCHAR" property="honoraryTitle" />
+    <result column="owned_city_industry" jdbcType="VARCHAR" property="ownedCityIndustry" />
+    <result column="principal_name" jdbcType="VARCHAR" property="principalName" />
+    <result column="contact_detail" jdbcType="VARCHAR" property="contactDetail" />
+    <result column="outstanding_deed" jdbcType="VARCHAR" property="outstandingDeed" />
+    <result column="is_current" jdbcType="TINYINT" property="isCurrent" />
+    <result column="addition_time" jdbcType="DATE" property="additionTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, honorary_title, owned_city_industry, principal_name, contact_detail, outstanding_deed, 
+    is_current, addition_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from advanced_collective
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from advanced_collective
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="g11.model.AdvancedCollective">
+    insert into advanced_collective (id, name, honorary_title, 
+      owned_city_industry, principal_name, contact_detail, 
+      outstanding_deed, is_current, addition_time
+      )
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{honoraryTitle,jdbcType=VARCHAR}, 
+      #{ownedCityIndustry,jdbcType=VARCHAR}, #{principalName,jdbcType=VARCHAR}, #{contactDetail,jdbcType=VARCHAR}, 
+      #{outstandingDeed,jdbcType=VARCHAR}, #{isCurrent,jdbcType=TINYINT}, #{additionTime,jdbcType=DATE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="g11.model.AdvancedCollective">
+    insert into advanced_collective
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="honoraryTitle != null">
+        honorary_title,
+      </if>
+      <if test="ownedCityIndustry != null">
+        owned_city_industry,
+      </if>
+      <if test="principalName != null">
+        principal_name,
+      </if>
+      <if test="contactDetail != null">
+        contact_detail,
+      </if>
+      <if test="outstandingDeed != null">
+        outstanding_deed,
+      </if>
+      <if test="isCurrent != null">
+        is_current,
+      </if>
+      <if test="additionTime != null">
+        addition_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="honoraryTitle != null">
+        #{honoraryTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="ownedCityIndustry != null">
+        #{ownedCityIndustry,jdbcType=VARCHAR},
+      </if>
+      <if test="principalName != null">
+        #{principalName,jdbcType=VARCHAR},
+      </if>
+      <if test="contactDetail != null">
+        #{contactDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="outstandingDeed != null">
+        #{outstandingDeed,jdbcType=VARCHAR},
+      </if>
+      <if test="isCurrent != null">
+        #{isCurrent,jdbcType=TINYINT},
+      </if>
+      <if test="additionTime != null">
+        #{additionTime,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="g11.model.AdvancedCollective">
+    update advanced_collective
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="honoraryTitle != null">
+        honorary_title = #{honoraryTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="ownedCityIndustry != null">
+        owned_city_industry = #{ownedCityIndustry,jdbcType=VARCHAR},
+      </if>
+      <if test="principalName != null">
+        principal_name = #{principalName,jdbcType=VARCHAR},
+      </if>
+      <if test="contactDetail != null">
+        contact_detail = #{contactDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="outstandingDeed != null">
+        outstanding_deed = #{outstandingDeed,jdbcType=VARCHAR},
+      </if>
+      <if test="isCurrent != null">
+        is_current = #{isCurrent,jdbcType=TINYINT},
+      </if>
+      <if test="additionTime != null">
+        addition_time = #{additionTime,jdbcType=DATE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="g11.model.AdvancedCollective">
+    update advanced_collective
+    set name = #{name,jdbcType=VARCHAR},
+      honorary_title = #{honoraryTitle,jdbcType=VARCHAR},
+      owned_city_industry = #{ownedCityIndustry,jdbcType=VARCHAR},
+      principal_name = #{principalName,jdbcType=VARCHAR},
+      contact_detail = #{contactDetail,jdbcType=VARCHAR},
+      outstanding_deed = #{outstandingDeed,jdbcType=VARCHAR},
+      is_current = #{isCurrent,jdbcType=TINYINT},
+      addition_time = #{additionTime,jdbcType=DATE}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

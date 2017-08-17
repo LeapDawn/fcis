@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="g11.dao.AdvancedPersonDAO">
+  <resultMap id="BaseResultMap" type="g11.dto.pageModel.PAdvancedPerson">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="honorary_title" jdbcType="VARCHAR" property="honoraryTitle" />
+    <result column="treatment" jdbcType="INTEGER" property="treatment" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="gender" jdbcType="TINYINT" property="gender" />
+    <result column="nation" jdbcType="VARCHAR" property="nation" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
+    <result column="cultural_level" jdbcType="VARCHAR" property="culturalLevel" />
+    <result column="political_status" jdbcType="VARCHAR" property="politicalStatus" />
+    <result column="owned_city_industry" jdbcType="VARCHAR" property="ownedCityIndustry" />
+    <result column="organization" jdbcType="VARCHAR" property="organization" />
+    <result column="duty" jdbcType="VARCHAR" property="duty" />
+    <result column="identity_card" jdbcType="VARCHAR" property="identityCard" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="status_information" jdbcType="VARCHAR" property="statusInformation" />
+    <result column="is_current" jdbcType="TINYINT" property="isCurrent" />
+    <result column="addition_time" jdbcType="DATE" property="additionTime" />
+    <result column="physical_condition" jdbcType="VARCHAR" property="physicalCondition" />
+    <result column="family_difficulties_and_employment" jdbcType="VARCHAR" property="familyDifficultiesAndEmployment" />
+    <result column="outstanding_deed" jdbcType="VARCHAR" property="outstandingDeed" />
+    <association property="certificationMaterials" column="certification_materials_id" select="g11.dao.CertificationMaterialsDAO.selectByPrimaryKeysin"></association>
+    <collection property="historyTitles" column="id" select="g11.dao.HistoryTitleDAO.findByApId"></collection>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, honorary_title, treatment, name, gender, nation, birthday, cultural_level, political_status, 
+    owned_city_industry, organization, duty, identity_card, tel, status, status_information, 
+    is_current, addition_time, physical_condition, family_difficulties_and_employment, 
+    outstanding_deed, certification_materials_id
+  </sql>
+    <sql id="divide">
+
+    </sql>
+    <!-- 单个查询 -->
+    <select id="selectByPrimaryKeysin" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from advanced_person
+        where id =
+
+            #{id,jdbcType=VARCHAR}
+
+    </select>
+    <!-- 按时间查询 -->
+    <select id="selectByDATE" parameterType="g11.dto.pageModel.Section" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from advanced_person
+        where addition_time BETWEEN
+
+        #{beginDate,jdbcType=DATE} AND #{endDate,jdbcType=DATE}
+
+    </select>
+    <!-- 批量查询 -->
+  <select id="selectByPrimaryKeys" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from advanced_person
+      where id in
+      <foreach collection="array" item="id" open="(" close=")" separator=",">
+          #{id,jdbcType=VARCHAR}
+      </foreach>
+  </select>
+    <!-- 根据主码查询材料码 -->
+    <select id="selectCid" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select certification_materials_id
+        from advanced_person
+        where id in
+        <foreach collection="array" item="id" open="(" close=")" separator=",">
+            #{id,jdbcType=VARCHAR}
+        </foreach>
+    </select>
+    <!-- 分页查询 -->
+  <select id="dividepageselect" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from advanced_person ap
+    where 1=1
+    <if test="pa.id != null">
+      and id =#{pa.id,jdbcType=VARCHAR}
+    </if>
+    <if test="pa.honoraryTitle != null">
+      and honorary_title =#{pa.honoraryTitle,jdbcType=VARCHAR}
+    </if>
+    <if test="pa.treatment != null">
+    and treatment = #{pa.treatment,jdbcType=INTEGER}
+    </if>
+    <if test="pa.name != null">
+    and name =  #{pa.name,jdbcType=VARCHAR}
+    </if>
+    <if test="pa.gender != null">
+    and gender =  #{pa.gender,jdbcType=TINYINT}
+    </if>
+    <if test="pa.nation != null">
+    and nation =  #{pa.nation,jdbcType=VARCHAR}
+    </if>
+    <if test="pa.birthday != null">
+     and birthday = #{pa.birthday,jdbcType=DATE}
+    </if>
+    <if test="pa.culturalLevel != null">
+    and cultural_level =  #{pa.culturalLevel,jdbcType=VARCHAR}
+    </if>
+    <if test="pa.politicalStatus != null">
+    and political_status =  #{pa.politicalStatus,jdbcType=VARCHAR}
+    </if>
+    <if test="pa.ownedCityIndustry != null">
+     and owned_city_industry = #{pa.ownedCityIndustry,jdbcType=VARCHAR}
+    </if>
+    <if test="pa.organization != null">
+     and organization = #{pa.organization,jdbcType=VARCHAR}
+    </if>
+    <if test="pa.duty != null">
+     and duty = #{pa.duty,jdbcType=VARCHAR}
+    </if>
+    <if test="pa.identityCard != null">
+     and identity_card = #{pa.identityCard,jdbcType=VARCHAR}
+    </if>
+    <if test="pa.tel != null">
+    and tel = #{pa.tel,jdbcType=VARCHAR}
+    </if>
+    <if test="pa.status != null">
+    and status =  #{pa.status,jdbcType=INTEGER}
+    </if>
+    <if test="pa.statusInformation != null">
+    and  status_information = #{pa.statusInformation,jdbcType=VARCHAR}
+    </if>
+    <if test="pa.isCurrent != null">
+     and is_current = #{pa.isCurrent,jdbcType=TINYINT}
+    </if>
+    <if test="pa.additionTime != null">
+     and addition_time = #{pa.additionTime,jdbcType=DATE}
+    </if>
+    <if test="pa.physicalCondition != null">
+    and  physical_condition = #{pa.physicalCondition,jdbcType=VARCHAR}
+    </if>
+    <if test="pa.familyDifficultiesAndEmployment != null">
+     and family_difficulties_and_employment =  #{pa.familyDifficultiesAndEmployment,jdbcType=VARCHAR}
+    </if>
+    <if test="pa.outstandingDeed != null">
+    and outstanding_deed = #{pa.outstandingDeed,jdbcType=VARCHAR}
+    </if>
+
+
+
+
+    limit #{skip},#{rows}
+  </select>
+    <!-- 统计总数 -->
+  <select id="count" parameterType="g11.dto.pageModel.PAdvancedPerson" resultType="int">
+    select
+    count(*)
+      from advanced_person
+    where 1=1
+    <if test="id != null">
+      and id =#{id,jdbcType=VARCHAR}
+    </if>
+    <if test="honoraryTitle != null">
+      and honorary_title =#{honoraryTitle,jdbcType=VARCHAR}
+    </if>
+    <if test="treatment != null">
+      and treatment = #{treatment,jdbcType=INTEGER}
+    </if>
+    <if test="name != null">
+      and name =  #{name,jdbcType=VARCHAR}
+    </if>
+    <if test="gender != null">
+      and gender =  #{gender,jdbcType=TINYINT}
+    </if>
+    <if test="nation != null">
+      and nation =  #{nation,jdbcType=VARCHAR}
+    </if>
+    <if test="birthday != null">
+      and birthday = #{birthday,jdbcType=DATE}
+    </if>
+    <if test="culturalLevel != null">
+      and cultural_level =  #{culturalLevel,jdbcType=VARCHAR}
+    </if>
+    <if test="politicalStatus != null">
+      and political_status =  #{politicalStatus,jdbcType=VARCHAR}
+    </if>
+    <if test="ownedCityIndustry != null">
+      and owned_city_industry = #{ownedCityIndustry,jdbcType=VARCHAR}
+    </if>
+    <if test="organization != null">
+      and organization = #{organization,jdbcType=VARCHAR}
+    </if>
+    <if test="duty != null">
+      and duty = #{duty,jdbcType=VARCHAR}
+    </if>
+    <if test="identityCard != null">
+      and identity_card = #{identityCard,jdbcType=VARCHAR}
+    </if>
+    <if test="tel != null">
+      and tel = #{tel,jdbcType=VARCHAR}
+    </if>
+    <if test="status != null">
+      and status =  #{status,jdbcType=INTEGER}
+    </if>
+    <if test="statusInformation != null">
+      and  status_information = #{statusInformation,jdbcType=VARCHAR}
+    </if>
+    <if test="isCurrent != null">
+      and is_current = #{isCurrent,jdbcType=TINYINT}
+    </if>
+    <if test="additionTime != null">
+      and addition_time = #{additionTime,jdbcType=DATE}
+    </if>
+    <if test="physicalCondition != null">
+      and  physical_condition = #{physicalCondition,jdbcType=VARCHAR}
+    </if>
+    <if test="familyDifficultiesAndEmployment != null">
+      and family_difficulties_and_employment =  #{familyDifficultiesAndEmployment,jdbcType=VARCHAR}
+    </if>
+    <if test="outstandingDeed != null">
+      and outstanding_deed =#{outstandingDeed,jdbcType=VARCHAR}
+    </if>
+  </select>
+    <!-- 批量删除 -->
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from advanced_person
+    where id IN
+      <foreach collection="array" item="id" open="(" close=")" separator=",">
+      #{id,jdbcType=VARCHAR}
+  </foreach>
+  </delete>
+
+  <insert id="insert" parameterType="g11.model.AdvancedPerson">
+    insert into advanced_person (id, honorary_title, treatment, 
+      name, gender, nation, 
+      birthday, cultural_level, political_status, 
+      owned_city_industry, organization, duty, 
+      identity_card, tel, status, 
+      status_information, is_current, addition_time, 
+      physical_condition, family_difficulties_and_employment, 
+      outstanding_deed, certification_materials_id
+      )
+    values (#{id,jdbcType=VARCHAR}, #{honoraryTitle,jdbcType=VARCHAR}, #{treatment,jdbcType=INTEGER}, 
+      #{name,jdbcType=VARCHAR}, #{gender,jdbcType=TINYINT}, #{nation,jdbcType=VARCHAR}, 
+      #{birthday,jdbcType=DATE}, #{culturalLevel,jdbcType=VARCHAR}, #{politicalStatus,jdbcType=VARCHAR}, 
+      #{ownedCityIndustry,jdbcType=VARCHAR}, #{organization,jdbcType=VARCHAR}, #{duty,jdbcType=VARCHAR}, 
+      #{identityCard,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{statusInformation,jdbcType=VARCHAR}, #{isCurrent,jdbcType=TINYINT}, #{additionTime,jdbcType=DATE}, 
+      #{physicalCondition,jdbcType=VARCHAR}, #{familyDifficultiesAndEmployment,jdbcType=VARCHAR}, 
+      #{outstandingDeed,jdbcType=VARCHAR}, #{certificationMaterialsId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="g11.model.AdvancedPerson">
+    insert into advanced_person
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="honoraryTitle != null">
+        honorary_title,
+      </if>
+      <if test="treatment != null">
+        treatment,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="nation != null">
+        nation,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="culturalLevel != null">
+        cultural_level,
+      </if>
+      <if test="politicalStatus != null">
+        political_status,
+      </if>
+      <if test="ownedCityIndustry != null">
+        owned_city_industry,
+      </if>
+      <if test="organization != null">
+        organization,
+      </if>
+      <if test="duty != null">
+        duty,
+      </if>
+      <if test="identityCard != null">
+        identity_card,
+      </if>
+      <if test="tel != null">
+        tel,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="statusInformation != null">
+        status_information,
+      </if>
+      <if test="isCurrent != null">
+        is_current,
+      </if>
+      <if test="additionTime != null">
+        addition_time,
+      </if>
+      <if test="physicalCondition != null">
+        physical_condition,
+      </if>
+      <if test="familyDifficultiesAndEmployment != null">
+        family_difficulties_and_employment,
+      </if>
+      <if test="outstandingDeed != null">
+        outstanding_deed,
+      </if>
+      <if test="certificationMaterialsId != null">
+        certification_materials_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="honoraryTitle != null">
+        #{honoraryTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="treatment != null">
+        #{treatment,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=TINYINT},
+      </if>
+      <if test="nation != null">
+        #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=DATE},
+      </if>
+      <if test="culturalLevel != null">
+        #{culturalLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="politicalStatus != null">
+        #{politicalStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="ownedCityIndustry != null">
+        #{ownedCityIndustry,jdbcType=VARCHAR},
+      </if>
+      <if test="organization != null">
+        #{organization,jdbcType=VARCHAR},
+      </if>
+      <if test="duty != null">
+        #{duty,jdbcType=VARCHAR},
+      </if>
+      <if test="identityCard != null">
+        #{identityCard,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="statusInformation != null">
+        #{statusInformation,jdbcType=VARCHAR},
+      </if>
+      <if test="isCurrent != null">
+        #{isCurrent,jdbcType=TINYINT},
+      </if>
+      <if test="additionTime != null">
+        #{additionTime,jdbcType=DATE},
+      </if>
+      <if test="physicalCondition != null">
+        #{physicalCondition,jdbcType=VARCHAR},
+      </if>
+      <if test="familyDifficultiesAndEmployment != null">
+        #{familyDifficultiesAndEmployment,jdbcType=VARCHAR},
+      </if>
+      <if test="outstandingDeed != null">
+        #{outstandingDeed,jdbcType=VARCHAR},
+      </if>
+      <if test="certificationMaterialsId != null">
+        #{certificationMaterialsId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="g11.model.AdvancedPerson">
+    update advanced_person
+    <set>
+      <if test="honoraryTitle != null">
+        honorary_title = #{honoraryTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="treatment != null">
+        treatment = #{treatment,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=TINYINT},
+      </if>
+      <if test="nation != null">
+        nation = #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=DATE},
+      </if>
+      <if test="culturalLevel != null">
+        cultural_level = #{culturalLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="politicalStatus != null">
+        political_status = #{politicalStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="ownedCityIndustry != null">
+        owned_city_industry = #{ownedCityIndustry,jdbcType=VARCHAR},
+      </if>
+      <if test="organization != null">
+        organization = #{organization,jdbcType=VARCHAR},
+      </if>
+      <if test="duty != null">
+        duty = #{duty,jdbcType=VARCHAR},
+      </if>
+      <if test="identityCard != null">
+        identity_card = #{identityCard,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="statusInformation != null">
+        status_information = #{statusInformation,jdbcType=VARCHAR},
+      </if>
+      <if test="isCurrent != null">
+        is_current = #{isCurrent,jdbcType=TINYINT},
+      </if>
+      <if test="additionTime != null">
+        addition_time = #{additionTime,jdbcType=DATE},
+      </if>
+      <if test="physicalCondition != null">
+        physical_condition = #{physicalCondition,jdbcType=VARCHAR},
+      </if>
+      <if test="familyDifficultiesAndEmployment != null">
+        family_difficulties_and_employment = #{familyDifficultiesAndEmployment,jdbcType=VARCHAR},
+      </if>
+      <if test="outstandingDeed != null">
+        outstanding_deed = #{outstandingDeed,jdbcType=VARCHAR},
+      </if>
+      <if test="certificationMaterialsId != null">
+        certification_materials_id = #{certificationMaterialsId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="g11.model.AdvancedPerson">
+    update advanced_person
+    set honorary_title = #{honoraryTitle,jdbcType=VARCHAR},
+      treatment = #{treatment,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=TINYINT},
+      nation = #{nation,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=DATE},
+      cultural_level = #{culturalLevel,jdbcType=VARCHAR},
+      political_status = #{politicalStatus,jdbcType=VARCHAR},
+      owned_city_industry = #{ownedCityIndustry,jdbcType=VARCHAR},
+      organization = #{organization,jdbcType=VARCHAR},
+      duty = #{duty,jdbcType=VARCHAR},
+      identity_card = #{identityCard,jdbcType=VARCHAR},
+      tel = #{tel,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      status_information = #{statusInformation,jdbcType=VARCHAR},
+      is_current = #{isCurrent,jdbcType=TINYINT},
+      addition_time = #{additionTime,jdbcType=DATE},
+      physical_condition = #{physicalCondition,jdbcType=VARCHAR},
+      family_difficulties_and_employment = #{familyDifficultiesAndEmployment,jdbcType=VARCHAR},
+      outstanding_deed = #{outstandingDeed,jdbcType=VARCHAR},
+      certification_materials_id = #{certificationMaterialsId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+    <update id="upstatus" parameterType="g11.model.AdvancedPerson">
+        update advanced_person
+
+        set status=#{status,jdbcType=INTEGER}
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+
+    <update id="overdue" parameterType="java.lang.String">
+        update advanced_person
+        set
+        is_current = false
+        where id in
+        <foreach collection="array" item="id" open="(" close=")" separator=",">
+            #{id,jdbcType=VARCHAR}
+        </foreach>
+    </update>
+  <!-- 按荣誉称号进行统计-->
+  <select id="statics" parameterType="g11.dto.pageModel.Section" resultType="java.util.Map">
+    select honorary_title as title,
+    count(*) as num
+    from advanced_person
+    <if test="beginDate != null and endDate != null ">
+      where addition_time BETWEEN #{beginDate,jdbcType=DATE}
+      AND #{endDate,jdbcType=DATE}
+    </if>
+    group by honorary_title
+  </select>
+
+
+</mapper>

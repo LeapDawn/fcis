@@ -1,0 +1,27 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "g11.commons.config.DataSourceAttr",
+      "name": "spring.datasource",
+      "type": "g11.commons.config.DataSourceAttr"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "g11.commons.config.DataSourceAttr",
+      "name": "spring.datasource.password",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "g11.commons.config.DataSourceAttr",
+      "name": "spring.datasource.url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "g11.commons.config.DataSourceAttr",
+      "name": "spring.datasource.username",
+      "type": "java.lang.String"
+    }
+  ]
+}

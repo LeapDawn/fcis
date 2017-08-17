@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="g11.dao.UserDAO">
+    <resultMap id="User" type="g11.model.User">
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="gender" jdbcType="TINYINT" property="gender"/>
+        <result column="identity_card" jdbcType="VARCHAR" property="identityCard"/>
+        <result column="tel" jdbcType="VARCHAR" property="tel"/>
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+        <result column="owned_association" jdbcType="INTEGER" property="ownedAssociation"/>
+        <result column="function" jdbcType="INTEGER" property="function"/>
+        <result column="content" jdbcType="VARCHAR" property="ownedAssociationName"/>
+    </resultMap>
+    <sql id="All_Columns">
+        id, password, name, gender, identity_card, tel, email, owned_association, function
+    </sql>
+    <sql id="Main_Columns">
+        u.id, u.name, u.gender, u.identity_card, u.tel, u.email, u.owned_association, u.function, ddd.content
+    </sql>
+    <select id="select" parameterType="java.lang.String" resultMap="User">
+        select
+        <include refid="All_Columns"/>
+        from user
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
+    <delete id="delete" parameterType="java.lang.String">
+        delete from user
+        where id in
+        <foreach collection="array" item="id" close=")" open="(" separator=",">
+            #{id,jdbcType=VARCHAR}
+        </foreach>
+    </delete>
+    <insert id="insert" parameterType="g11.model.User">
+        insert into user (id, password, name,
+        gender, identity_card, tel,
+        email, owned_association, function
+        )
+        values (#{id,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
+        #{gender,jdbcType=TINYINT}, #{identityCard,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR},
+        #{email,jdbcType=VARCHAR}, #{ownedAssociation,jdbcType=INTEGER}, #{function,jdbcType=INTEGER}
+        )
+    </insert>
+    <insert id="insertSelective" parameterType="g11.model.User">
+        insert into user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="password != null">
+                password,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="gender != null">
+                gender,
+            </if>
+            <if test="identityCard != null">
+                identity_card,
+            </if>
+            <if test="tel != null">
+                tel,
+            </if>
+            <if test="email != null">
+                email,
+            </if>
+            <if test="ownedAssociation != null">
+                owned_association,
+            </if>
+            <if test="function != null">
+                function,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="gender != null">
+                #{gender,jdbcType=TINYINT},
+            </if>
+            <if test="identityCard != null">
+                #{identityCard,jdbcType=VARCHAR},
+            </if>
+            <if test="tel != null">
+                #{tel,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="ownedAssociation != null">
+                #{ownedAssociation,jdbcType=INTEGER},
+            </if>
+            <if test="function != null">
+                #{function,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="g11.model.User">
+        update user
+        <set>
+            <if test="password != null">
+                password = #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="gender != null">
+                gender = #{gender,jdbcType=TINYINT},
+            </if>
+            <if test="identityCard != null">
+                identity_card = #{identityCard,jdbcType=VARCHAR},
+            </if>
+            <if test="tel != null">
+                tel = #{tel,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                email = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="ownedAssociation != null">
+                owned_association = #{ownedAssociation,jdbcType=INTEGER},
+            </if>
+            <if test="function != null">
+                function = #{function,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="g11.model.User">
+        update user
+        set password = #{password,jdbcType=VARCHAR},
+        name = #{name,jdbcType=VARCHAR},
+        gender = #{gender,jdbcType=TINYINT},
+        identity_card = #{identityCard,jdbcType=VARCHAR},
+        tel = #{tel,jdbcType=VARCHAR},
+        email = #{email,jdbcType=VARCHAR},
+        owned_association = #{ownedAssociation,jdbcType=INTEGER},
+        function = #{function,jdbcType=INTEGER}
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updatePassword" parameterType="g11.model.User">
+        update user
+        set password = #{password,jdbcType=VARCHAR},
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+
+    <select id="count" resultType="java.lang.Integer">
+        select count(*) from user
+    </select>
+
+    <select id="list" resultMap="User">
+        select <include refid="Main_Columns"/>
+        from user u left join data_dir_detail ddd on u.owned_association = ddd.id
+        limit #{skip}, #{rows}
+    </select>
+</mapper>

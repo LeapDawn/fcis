@@ -1,5 +1,6 @@
 package g11.web;
 
+import g11.commons.config.FilePath;
 import g11.commons.exception.ExcelException;
 import g11.dto.AjaxResult;
 import g11.dto.RequestList;
@@ -11,6 +12,7 @@ import g11.service.AdvancedCollectiveService;
 import lombok.Setter;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -20,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 
 /**
  * Created by cody on 2017/8/7.
@@ -48,6 +51,7 @@ public class AdvancedCollectiveController {
 
     @RequestMapping("/list")
     public AjaxResult list(@RequestBody RequestList<AdvancedCollective> requestList) throws Exception {
+        requestList.getKey().setIsCurrent((byte)1);
         ResultModel<AdvancedCollective> resultModel = advancedCollectiveService.list(requestList);
         return AjaxResult.success(resultModel);
     }
@@ -60,7 +64,7 @@ public class AdvancedCollectiveController {
 
     @RequestMapping(value="/upload", method=RequestMethod.POST)
     @ResponseBody
-    public AjaxResult upload(@RequestParam("file") MultipartFile file){
+    public AjaxResult upload(@RequestBody MultipartFile file){
         if (file == null) {
             return AjaxResult.fail(101,"上传的文件为空");
         }
@@ -79,7 +83,7 @@ public class AdvancedCollectiveController {
 
         // 是否全部导入成功
         if (resultModel.getError() > 0) {
-            result = AjaxResult.success("没有全部导入成功");
+            result = AjaxResult.fail(105,resultModel);
         } else {
             result = AjaxResult.success("成功导入" + resultModel.getSuccess() + "条采样地记录");
         }
@@ -87,13 +91,15 @@ public class AdvancedCollectiveController {
     }
 
     @RequestMapping("/download")
-    public Object download(@RequestBody Section section) throws Exception {
-        File file = new File("D:\\ac.xlsx");
+    public Object download(@RequestParam String ids) throws Exception {
+        Section section = new Section();
+        section.setIds(ids);
+        File file = new File(FilePath.FILE_DIR_PATH + System.currentTimeMillis() +".xls");
         file.createNewFile();
         section.setIsCurrent((byte)1);
         File filledFile = advancedCollectiveService.downloadData(section,file);
         HttpHeaders headers = new HttpHeaders();
-        headers.setContentDispositionFormData("attachment","ac.xlsx");
+        headers.setContentDispositionFormData("attachment","ac.xls");
         headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
         ResponseEntity<byte[]> responseEntity = new ResponseEntity<byte[]>(FileUtils.readFileToByteArray(filledFile), headers, HttpStatus.CREATED);
         Object retObj = responseEntity;
@@ -104,9 +110,9 @@ public class AdvancedCollectiveController {
 //    //下载导入模板
 //    @RequestMapping("/downloadImportModel")
 //    public Object downloadImportModel() throws Exception {
-//        File file = new File("classpath:acImportModel.xlsx");
+//        File file = new File("classpath:acImportModel.xls");
 //        HttpHeaders headers = new HttpHeaders();
-//        headers.setContentDispositionFormData("attachment","acImportModel.xlsx");
+//        headers.setContentDispositionFormData("attachment","acImportModel.xls");
 //        headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
 //        ResponseEntity<byte[]> responseEntity = new ResponseEntity<byte[]>(FileUtils.readFileToByteArray(file), headers, HttpStatus.CREATED);
 //        Object retObj = responseEntity;
@@ -115,12 +121,15 @@ public class AdvancedCollectiveController {
 //    }
 
     @RequestMapping("/export")
-    public Object export(@RequestBody Section section) throws Exception {
-        File file = new File("D:\\ac.xlsx");
+    public Object export(@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date beginDate, @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd")Date endDate) throws Exception {
+        Section section = new Section();
+        section.setBeginDate(beginDate);
+        section.setEndDate(endDate);
+        File file = new File(FilePath.FILE_DIR_PATH + System.currentTimeMillis() +".xls");
         file.createNewFile();
         File filledFile = advancedCollectiveService.exportData(section,file);
         HttpHeaders headers = new HttpHeaders();
-        headers.setContentDispositionFormData("attachment","ac.xlsx");
+        headers.setContentDispositionFormData("attachment","ac.xls");
         headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
         ResponseEntity<byte[]> responseEntity = new ResponseEntity<byte[]>(FileUtils.readFileToByteArray(filledFile), headers, HttpStatus.CREATED);
         Object retObj = responseEntity;

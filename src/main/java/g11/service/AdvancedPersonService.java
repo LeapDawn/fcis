@@ -2,12 +2,13 @@ package g11.service;
 
 import g11.dto.RequestList;
 import g11.dto.ResultModel;
-import g11.dto.StatisticsSection;
+
 import g11.dto.pageModel.PAdvancedPerson;
-import g11.dto.pageModel.Pdsearch;
+
 import g11.dto.pageModel.Section;
 import g11.model.AdvancedPerson;
 import g11.model.StatisticsResult;
+
 
 import java.util.List;
 import java.util.Map;
@@ -64,4 +65,5 @@ public interface AdvancedPersonService extends ImportAndExport, Download {
      */
     public abstract void overdue(Section section);
 
+    StatisticsResult getLastStaticsResult();
 }

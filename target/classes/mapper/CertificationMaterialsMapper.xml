@@ -17,16 +17,31 @@
     id, grant_unit, grant_time, file_name_number, issuing_unit, profile_name, treatment, 
     deed_briefing, certification_base, opinion
   </sql>
+  <!-- 根据主码批量查找 -->
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from certification_materials
-    where id = #{id,jdbcType=VARCHAR}
+    where id in
+    <foreach collection="array" item="id" open="(" close=")" separator=",">
+      #{id,jdbcType=VARCHAR}
+    </foreach>
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from certification_materials
+  <select id="selectByPrimaryKeysin" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from certification_materials
     where id = #{id,jdbcType=VARCHAR}
+
+  </select>
+  <!-- 根据主码批量删除 -->
+  <delete id="deleteByPrimaryKey" >
+    delete from certification_materials
+    where id =
+    #{id,jdbcType=VARCHAR}
+
   </delete>
+  <!-- 插入数据 -->
   <insert id="insert" parameterType="g11.model.CertificationMaterials">
     insert into certification_materials (id, grant_unit, grant_time, 
       file_name_number, issuing_unit, profile_name, 
@@ -37,6 +52,7 @@
       #{treatment,jdbcType=VARCHAR}, #{deedBriefing,jdbcType=VARCHAR}, #{certificationBase,jdbcType=VARCHAR}, 
       #{opinion,jdbcType=VARCHAR})
   </insert>
+  <!-- 插入部分数据 -->
   <insert id="insertSelective" parameterType="g11.model.CertificationMaterials">
     insert into certification_materials
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -104,6 +120,7 @@
       </if>
     </trim>
   </insert>
+  <!-- 根据主码选择量更新数据 -->
   <update id="updateByPrimaryKeySelective" parameterType="g11.model.CertificationMaterials">
     update certification_materials
     <set>
@@ -137,6 +154,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
+  <!-- 根据主码更新整条数据 -->
   <update id="updateByPrimaryKey" parameterType="g11.model.CertificationMaterials">
     update certification_materials
     set grant_unit = #{grantUnit,jdbcType=VARCHAR},

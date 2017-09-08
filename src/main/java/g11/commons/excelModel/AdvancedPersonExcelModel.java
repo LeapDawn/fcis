@@ -1,6 +1,6 @@
 package g11.commons.excelModel;
 
-import com.sun.xml.internal.bind.v2.model.core.ID;
+
 
 /**
  * Created by Administrator on 2017/8/14.
@@ -37,19 +37,47 @@ public class AdvancedPersonExcelModel {
     public static final String deed_briefing="当时评选的主要突出事迹简述";
     public static final String certification_base="认定依据";
     public static final String opinion="初审认定意见";
+    public static final String historytitleid="历史荣誉称号编号";
+    public static final String historytitlename="历史荣誉称号名";
+    public static final String obtaindate="发放日期";
+    public static final String hisgrantunit="发放单位";
+    public static final String split=";";
+
+    public static final String[] locations = new String[]{"越秀区","荔湾区","海珠区","天河区","白云区","黄浦区","番禺区","花都区","南沙区","增城","从化"};
+
+    public static boolean checkLocation(String location) {
+        for (String s : locations) {
+            if (s.equals(location)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static String getLocations() {
+        StringBuffer sb = new StringBuffer("[");
+        for (String s : locations) {
+            sb.append(s);
+            sb.append(",");
+        }
+        sb.deleteCharAt(sb.length() - 1);
+        sb.append(']');
+        return sb.toString();
+    }
+
 
     public static String[] getoutputAdvancedPersonExcelModel(){
         return new String[]{
                 ID,honorary_title,treatment,name,gender,nation,birthday,culturallevel,politicalstatus,owendcityindustry,
                 organization,duty,identitycard,tel,Status,iscurrent,additiontime,physicalcondition,family_difficulties_and_employment,
                 outstanding_deed,cmid,grantunit,granttime,file_name_number,issuing_unit,profile_name,ctreatment,deed_briefing,certification_base,
-                opinion
+                opinion,historytitleid,historytitlename,obtaindate,hisgrantunit
         };
     }
     public static String[] getinputAdvancedPersonExcelModel(){
-        return new String[]{ID,honorary_title,treatment,name,gender,nation,birthday,culturallevel,politicalstatus,owendcityindustry,
-                organization,duty,identitycard,tel,Status,physicalcondition,family_difficulties_and_employment,
+        return new String[]{honorary_title,treatment,name,gender,nation,birthday,culturallevel,politicalstatus,owendcityindustry,
+                organization,duty,identitycard,tel,physicalcondition,family_difficulties_and_employment,
                 outstanding_deed,cmid,grantunit,granttime,file_name_number,issuing_unit,profile_name,ctreatment,deed_briefing,certification_base,
-                opinion};
+                opinion,historytitleid,historytitlename,obtaindate,hisgrantunit};
     }
 }

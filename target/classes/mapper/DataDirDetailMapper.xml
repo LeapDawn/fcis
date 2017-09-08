@@ -10,14 +10,24 @@
     id, content, data_dir
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from data_dir_detail
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <select id="selectByDataDir" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from data_dir_detail
+    where data_dir = #{data_dir,jdbcType=INTEGER}
+  </select>
+  <delete id="delete" parameterType="java.lang.Integer">
     delete from data_dir_detail
-    where id = #{id,jdbcType=INTEGER}
+    where id in
+    <foreach collection="array" item="id" close=")" open="(" separator=",">
+      #{id,jdbcType=INTEGER}
+    </foreach>
+    <!--where id = #{id,jdbcType=INTEGER}-->
   </delete>
   <insert id="insert" parameterType="g11.model.DataDirDetail">
     insert into data_dir_detail (id, content, data_dir

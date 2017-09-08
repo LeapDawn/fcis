@@ -7,4 +7,6 @@ public interface StatisticsResultDAO {
     int insert(StatisticsResult record);
 
     StatisticsResult selectLast();
+
+    StatisticsResult selectLastPerson();
 }

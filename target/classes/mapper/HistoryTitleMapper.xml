@@ -11,22 +11,47 @@
   <sql id="Base_Column_List">
     id, name, obtain_date, grant_unit, ap_id
   </sql>
+  <!-- 根据主码批量查询 -->
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from history_title
-    where id = #{id,jdbcType=VARCHAR}
+    where id in
+    <foreach collection="array" item="id" open="(" close=")" separator=",">
+      #{id,jdbcType=VARCHAR}
+    </foreach>
   </select>
+  <!-- 根据先进个人id批量查询 -->
+  <select id="findByApId" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from history_title
+    where ap_id = #{apid,jdbcType=VARCHAR}
+  </select>
+  <!-- 根据主码批量删除 -->
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from history_title
-    where id = #{id,jdbcType=VARCHAR}
+    where id in
+    <foreach collection="array" item="id" open="(" close=")" separator=",">
+      #{id,jdbcType=VARCHAR}
+    </foreach>
   </delete>
+  <!-- 根据先进个人id批量删除 -->
+  <delete id="deleteByAPID" parameterType="java.lang.String">
+    delete from history_title
+    where id in
+    <foreach collection="array" item="apid" open="(" close=")" separator=",">
+      #{apid,jdbcType=VARCHAR}
+    </foreach>
+  </delete>
+  <!-- 插入数据 -->
   <insert id="insert" parameterType="g11.model.HistoryTitle">
     insert into history_title (id, name, obtain_date, 
       grant_unit, ap_id)
     values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{obtainDate,jdbcType=DATE}, 
       #{grantUnit,jdbcType=VARCHAR}, #{apId,jdbcType=VARCHAR})
   </insert>
+  <!-- 选择性插入数据 -->
   <insert id="insertSelective" parameterType="g11.model.HistoryTitle">
     insert into history_title
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -64,6 +89,7 @@
       </if>
     </trim>
   </insert>
+  <!-- 根据主码选择性更新 -->
   <update id="updateByPrimaryKeySelective" parameterType="g11.model.HistoryTitle">
     update history_title
     <set>
@@ -82,6 +108,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
+  <!-- 根据主码更新数据 -->
   <update id="updateByPrimaryKey" parameterType="g11.model.HistoryTitle">
     update history_title
     set name = #{name,jdbcType=VARCHAR},

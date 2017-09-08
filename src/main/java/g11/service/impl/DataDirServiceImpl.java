@@ -1,6 +1,5 @@
 package g11.service.impl;
 
-import g11.commons.exception.DataViolationException;
 import g11.commons.util.StringUtil;
 import g11.dao.DataDirDAO;
 import g11.dao.DataDirDetailDAO;
@@ -10,8 +9,6 @@ import g11.service.DataDirService;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.xml.sax.Parser;
-
 import java.util.List;
 
 /**

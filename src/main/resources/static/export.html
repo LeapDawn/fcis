@@ -1,0 +1,976 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF8">
+    <title></title>
+    <style type="text/css">
+        #container {
+            margin: 8px;
+        }
+
+        .param-table {
+            background: #E6E6E6;
+            border: 1px solid #FFF;
+            margin: 12px 0;
+            border-collapse: collapse;
+        }
+
+        .param-table th {
+            background: gray;
+            color: #FFF;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            border: 1px solid #FFF;
+            padding: 5px;
+        }
+
+        .param-table td {
+            border-collapse: collapse;
+            border: 1px solid #FFF;
+            font-size: 12px;
+            padding: 5px;
+        }
+
+        .param-table .th-name {
+            min-width: 140px;
+        }
+
+        .param-table .th-identifier {
+            min-width: 140px;
+        }
+
+        .param-table .th-type {
+            min-width: 100px;
+        }
+
+        .param-table .th-remark {
+            min-width: 200px;
+        }
+
+        .param-table .td-name {}
+
+        .param-table .td-identifier {}
+
+        .param-table .td-type   { color: #990000; }
+
+        .param-table .td-remark { color: #666; }
+
+        .param-table .tr-level-1 { background: #F5F5F5; }
+        .param-table .tr-level-1 .td-identifier { padding-left: 5px; }
+
+        .param-table .tr-level-2 { background: #E6E6E6; }
+        .param-table .tr-level-2 .td-identifier { padding-left: 15px; }
+
+        .param-table .tr-level-3 { background: #CCCCCC; }
+        .param-table .tr-level-3 .td-identifier { padding-left: 25px; }
+
+        .param-table .tr-level-4 { background: #E6E6E6; }
+        .param-table .tr-level-4 .td-identifier { padding-left: 35px; }
+
+        .param-table .tr-level-5 { background: #CCCCCC; }
+        .param-table .tr-level-5 .td-identifier { padding-left: 45px; }
+
+        .param-table .tr-level-6 { background: #E6E6E6; }
+        .param-table .tr-level-6 .td-identifier { padding-left: 55px; }
+
+        .param-table .tr-level-7 { background: #CCCCCC; }
+        .param-table .tr-level-7 .td-identifier { padding-left: 65px; }
+
+        .param-table .tr-level-8 { background: #E6E6E6; }
+        .param-table .tr-level-8 .td-identifier { padding-left: 75px; }
+
+        .param-table .tr-level-9 { background: #CCCCCC; }
+        .param-table .tr-level-9 .td-identifier { padding-left: 85px; }
+
+        .param-table .tr-level-10 { background: #E6E6E6; }
+        .param-table .tr-level-10 .td-identifier { padding-left: 95px; }
+
+        .param-table .tr-level-11 {
+            background: #CCCCCC;
+        }
+        .param-table .tr-level-11 .td-identifier { padding-left: 105px; }
+
+        .param-table .tr-level-12 {
+            background: #E6E6E6;
+        }
+        .param-table .tr-level-12 .td-identifier { padding-left: 115px; }
+
+        .param-table .tr-level-13 {
+            background: #CCCCCC;
+        }
+        .param-table .tr-level-13 .td-identifier { padding-left: 125px; }
+    </style>
+</head>
+<body>
+<div id="container">
+            <div class="module">
+            <h1>1&nbsp;先进个人管理</h1>
+                            <div class="page">
+                    <h2>1.1&nbsp;先进个人管理</h2>
+                                            <div class="action">
+                            <h3>1.1.1&nbsp;分页查询先进个人</h3>
+
+                            <h3>URL</h3>
+                            <div>/ap/list</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">需要查看的页面</td><td class="td-identifier">page</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">关键字</td><td class="td-identifier">key</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---文化shuip</td><td class="td-identifier">culturalLevel</td><td class="td-type">string</td><td class="td-remark">@mock=本科</td></tr><tr class="tr-level-2"><td class="td-name">---姓名</td><td class="td-identifier">name</td><td class="td-type">string</td><td class="td-remark">@mock=l</td></tr><tr class="tr-level-2"><td class="td-name">---家庭困难和收入情况</td><td class="td-identifier">familyDifficultiesAndEmployment</td><td class="td-type">string</td><td class="td-remark">@mock=贫穷</td></tr><tr class="tr-level-2"><td class="td-name">---添加时间</td><td class="td-identifier">additionTime</td><td class="td-type">string</td><td class="td-remark">@mock=2017-08-18</td></tr><tr class="tr-level-2"><td class="td-name">---工作单位</td><td class="td-identifier">organization</td><td class="td-type">string</td><td class="td-remark">@mock=南海科技有限公司</td></tr><tr class="tr-level-2"><td class="td-name">---状态</td><td class="td-identifier">status</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-2"><td class="td-name">---职务</td><td class="td-identifier">duty</td><td class="td-type">string</td><td class="td-remark">@mock=gongzuo</td></tr><tr class="tr-level-2"><td class="td-name">---民族</td><td class="td-identifier">nation</td><td class="td-type">string</td><td class="td-remark">@mock=汉</td></tr><tr class="tr-level-2"><td class="td-name">---主要突出事迹</td><td class="td-identifier">outstandingDeed</td><td class="td-type">string</td><td class="td-remark">@mock=保卫艾泽拉斯</td></tr><tr class="tr-level-2"><td class="td-name">---身体状况</td><td class="td-identifier">physicalCondition</td><td class="td-type">string</td><td class="td-remark">@mock=健康</td></tr><tr class="tr-level-2"><td class="td-name">---荣誉称号</td><td class="td-identifier">honoraryTitle</td><td class="td-type">string</td><td class="td-remark">@mock=武汉敬业代表</td></tr><tr class="tr-level-2"><td class="td-name">---生日</td><td class="td-identifier">birthday</td><td class="td-type">string</td><td class="td-remark">@mock=2017-08-18</td></tr><tr class="tr-level-2"><td class="td-name">---所属市州产业</td><td class="td-identifier">ownedCityIndustry</td><td class="td-type">string</td><td class="td-remark">@mock=广州</td></tr><tr class="tr-level-2"><td class="td-name">---政治面貌</td><td class="td-identifier">politicalStatus</td><td class="td-type">string</td><td class="td-remark">@mock=群众</td></tr><tr class="tr-level-2"><td class="td-name">---电话</td><td class="td-identifier">tel</td><td class="td-type">string</td><td class="td-remark">@mock=122331213</td></tr><tr class="tr-level-2"><td class="td-name">---身份证号</td><td class="td-identifier">identityCard</td><td class="td-type">string</td><td class="td-remark">@mock=999919919119a1129</td></tr><tr class="tr-level-2"><td class="td-name">---待遇</td><td class="td-identifier">treatment</td><td class="td-type">string</td><td class="td-remark">@mock=8</td></tr><tr class="tr-level-2"><td class="td-name">---性别</td><td class="td-identifier">gender</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">一页的记录数</td><td class="td-identifier">rows</td><td class="td-type">string</td><td class="td-remark">@mock=9</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">请求是否成功</td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr><tr class="tr-level-1"><td class="td-name">返回数组</td><td class="td-identifier">value</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---当前页数</td><td class="td-identifier">currentPage</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-2"><td class="td-name">---数据项</td><td class="td-identifier">data</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-3"><td class="td-name">------职务</td><td class="td-identifier">duty</td><td class="td-type">string</td><td class="td-remark">@mock=gongzuo</td></tr><tr class="tr-level-3"><td class="td-name">------家庭困难和收入情况</td><td class="td-identifier">familyDifficultiesAndEmployment</td><td class="td-type">string</td><td class="td-remark">@mock=贫穷</td></tr><tr class="tr-level-3"><td class="td-name">------文化水平</td><td class="td-identifier">culturalLevel</td><td class="td-type">string</td><td class="td-remark">@mock=本科</td></tr><tr class="tr-level-3"><td class="td-name">------先进个人编号</td><td class="td-identifier">id</td><td class="td-type">string</td><td class="td-remark">@mock=30384093344135</td></tr><tr class="tr-level-3"><td class="td-name">------姓名</td><td class="td-identifier">name</td><td class="td-type">string</td><td class="td-remark">@mock=l</td></tr><tr class="tr-level-3"><td class="td-name">------申请材料</td><td class="td-identifier">certificationMaterials</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-4"><td class="td-name">---------认定依据</td><td class="td-identifier">certificationBase</td><td class="td-type">string</td><td class="td-remark">@mock=哀莫能租</td></tr><tr class="tr-level-4"><td class="td-name">---------提供档案，表彰决定等原始资料明确的荣誉称号待遇</td><td class="td-identifier">treatment</td><td class="td-type">string</td><td class="td-remark">@mock=通过了</td></tr><tr class="tr-level-4"><td class="td-name">---------认定材料编号</td><td class="td-identifier">id</td><td class="td-type">string</td><td class="td-remark">@mock=30384093343328</td></tr><tr class="tr-level-4"><td class="td-name">---------审批时突出事迹</td><td class="td-identifier">deedBriefing</td><td class="td-type">string</td><td class="td-remark">@mock=帮过人</td></tr><tr class="tr-level-4"><td class="td-name">---------初审单位意见</td><td class="td-identifier">opinion</td><td class="td-type">string</td><td class="td-remark">@mock=无</td></tr><tr class="tr-level-4"><td class="td-name">---------表彰决定文件名及文号</td><td class="td-identifier">fileNameNumber</td><td class="td-type">string</td><td class="td-remark">@mock=0101</td></tr><tr class="tr-level-4"><td class="td-name">---------授予单位</td><td class="td-identifier">grantUnit</td><td class="td-type">string</td><td class="td-remark">@mock=dalao</td></tr><tr class="tr-level-4"><td class="td-name">---------授予时间</td><td class="td-identifier">grantTime</td><td class="td-type">number</td><td class="td-remark">@mock=1502812800000</td></tr><tr class="tr-level-4"><td class="td-name">---------发文单位</td><td class="td-identifier">issuingUnit</td><td class="td-type">string</td><td class="td-remark">@mock=01</td></tr><tr class="tr-level-4"><td class="td-name">---------时间或者档案等资料名称</td><td class="td-identifier">profileName</td><td class="td-type">string</td><td class="td-remark">@mock=秘密文件</td></tr><tr class="tr-level-3"><td class="td-name">------民族</td><td class="td-identifier">nation</td><td class="td-type">string</td><td class="td-remark">@mock=汉</td></tr><tr class="tr-level-3"><td class="td-name">------添加时间</td><td class="td-identifier">additionTime</td><td class="td-type">number</td><td class="td-remark">@mock=1502985600000</td></tr><tr class="tr-level-3"><td class="td-name">------身体健康状况</td><td class="td-identifier">physicalCondition</td><td class="td-type">string</td><td class="td-remark">@mock=健康</td></tr><tr class="tr-level-3"><td class="td-name">------待遇</td><td class="td-identifier">treatment</td><td class="td-type">number</td><td class="td-remark">@mock=8</td></tr><tr class="tr-level-3"><td class="td-name">------所属市州单位</td><td class="td-identifier">ownedCityIndustry</td><td class="td-type">string</td><td class="td-remark">@mock=广州</td></tr><tr class="tr-level-3"><td class="td-name">------状态</td><td class="td-identifier">status</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-3"><td class="td-name">------状态信息</td><td class="td-identifier">statusInformation</td><td class="td-type">string</td><td class="td-remark">@mock=yes</td></tr><tr class="tr-level-3"><td class="td-name">------政治面貌</td><td class="td-identifier">politicalStatus</td><td class="td-type">string</td><td class="td-remark">@mock=群众</td></tr><tr class="tr-level-3"><td class="td-name">------工作单位</td><td class="td-identifier">organization</td><td class="td-type">string</td><td class="td-remark">@mock=南海科技有限公司</td></tr><tr class="tr-level-3"><td class="td-name">------性别</td><td class="td-identifier">gender</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-3"><td class="td-name">------主要突出事迹</td><td class="td-identifier">outstandingDeed</td><td class="td-type">string</td><td class="td-remark">@mock=保卫艾泽拉斯</td></tr><tr class="tr-level-3"><td class="td-name">------生日</td><td class="td-identifier">birthday</td><td class="td-type">number</td><td class="td-remark">@mock=1502985600000</td></tr><tr class="tr-level-3"><td class="td-name">------认定材料id</td><td class="td-identifier">certificationMaterialsId</td><td class="td-type"></td><td class="td-remark"></td></tr><tr class="tr-level-3"><td class="td-name">------是否为当界</td><td class="td-identifier">isCurrent</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-3"><td class="td-name">------历史荣耀</td><td class="td-identifier">historyTitles</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-4"><td class="td-name">---------授予时间</td><td class="td-identifier">obtainDate</td><td class="td-type">number</td><td class="td-remark">@mock=$order(1502985600000,1502985600000)</td></tr><tr class="tr-level-4"><td class="td-name">---------发放单位</td><td class="td-identifier">grantUnit</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;wo&#39;,&#39;wo&#39;)</td></tr><tr class="tr-level-4"><td class="td-name">---------先进个人id</td><td class="td-identifier">apId</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;30384093344135&#39;,&#39;30384093344135&#39;)</td></tr><tr class="tr-level-4"><td class="td-name">---------荣耀id</td><td class="td-identifier">id</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;34346064615940&#39;,&#39;42985495795172&#39;)</td></tr><tr class="tr-level-4"><td class="td-name">---------荣耀称号名称</td><td class="td-identifier">name</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;守望先锋&#39;,&#39;守望先锋&#39;)</td></tr><tr class="tr-level-3"><td class="td-name">------身份证号</td><td class="td-identifier">identityCard</td><td class="td-type">string</td><td class="td-remark">@mock=999919919119a1129</td></tr><tr class="tr-level-3"><td class="td-name">------电话</td><td class="td-identifier">tel</td><td class="td-type">string</td><td class="td-remark">@mock=122331213</td></tr><tr class="tr-level-3"><td class="td-name">------荣耀称号名称</td><td class="td-identifier">honoraryTitle</td><td class="td-type">string</td><td class="td-remark">@mock=武汉敬业代表</td></tr><tr class="tr-level-2"><td class="td-name">---页数</td><td class="td-identifier">pages</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-2"><td class="td-name">---行数</td><td class="td-identifier">rows</td><td class="td-type">number</td><td class="td-remark">@mock=9</td></tr><tr class="tr-level-2"><td class="td-name">---总数</td><td class="td-identifier">total</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.1.2&nbsp;删除先进个人信息</h3>
+
+                            <h3>URL</h3>
+                            <div>/ap/delete</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">需要删除的先进个人id（可以多个，以逗号隔开）</td><td class="td-identifier">ids</td><td class="td-type">string</td><td class="td-remark">@mock=28553827112168,28555804170511</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">返回参数</td><td class="td-identifier">value</td><td class="td-type">string</td><td class="td-remark">@mock=删除成功</td></tr><tr class="tr-level-1"><td class="td-name">是否请求成功</td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.1.3&nbsp;导入先进个人数据</h3>
+
+                            <h3>URL</h3>
+                            <div>/ap/upload</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">返回结果信息</td><td class="td-identifier">value</td><td class="td-type">string</td><td class="td-remark">@mock=上传的文件为空</td></tr><tr class="tr-level-1"><td class="td-name">返回对应相应数据库错误</td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=204</td></tr><tr class="tr-level-1"><td class="td-name">返回对应获取上传文件失败</td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=201</td></tr><tr class="tr-level-1"><td class="td-name">返回结果信息</td><td class="td-identifier">value</td><td class="td-type">string</td><td class="td-remark">@mock=未知异常</td></tr><tr class="tr-level-1"><td class="td-name">返回对应上次文件为空</td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=202</td></tr><tr class="tr-level-1"><td class="td-name">返回结果信息</td><td class="td-identifier">value</td><td class="td-type">string</td><td class="td-remark">@mock=成功导入1条采样的记录</td></tr><tr class="tr-level-1"><td class="td-name">返回对应未知异常</td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=203</td></tr><tr class="tr-level-1"><td class="td-name">返回结果信息</td><td class="td-identifier">value</td><td class="td-type">string</td><td class="td-remark">@mock=获取上传的文件失败</td></tr><tr class="tr-level-1"><td class="td-name">返回成功</td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.1.4&nbsp;下载先进个人数据</h3>
+
+                            <h3>URL</h3>
+                            <div>/ap/download</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">要下载的先进个人id</td><td class="td-identifier">ids</td><td class="td-type">string</td><td class="td-remark">@mock=28553827112168,28555804170511</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.1.5&nbsp;导出先进个人数据</h3>
+
+                            <h3>URL</h3>
+                            <div>/ap/export</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">导出的结束日期</td><td class="td-identifier">endDate</td><td class="td-type">string</td><td class="td-remark">@mock=2017-08-18</td></tr><tr class="tr-level-1"><td class="td-name">导出的开始日期</td><td class="td-identifier">beginDate</td><td class="td-type">string</td><td class="td-remark">@mock=2017-08-16</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.1.6&nbsp;先进个人统计</h3>
+
+                            <h3>URL</h3>
+                            <div>/ap/statics</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">查询开始日期</td><td class="td-identifier">beginDate</td><td class="td-type">string</td><td class="td-remark">@mock=2017-08-16</td></tr><tr class="tr-level-1"><td class="td-name">查询结束日期</td><td class="td-identifier">endDate</td><td class="td-type">string</td><td class="td-remark">@mock=2017-08-18</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">返回的数组</td><td class="td-identifier">value</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---数量</td><td class="td-identifier">num</td><td class="td-type">number</td><td class="td-remark">@mock=2</td></tr><tr class="tr-level-2"><td class="td-name">---称号名</td><td class="td-identifier">title</td><td class="td-type">string</td><td class="td-remark">@mock=武汉敬业代表</td></tr><tr class="tr-level-1"><td class="td-name">请求是否成功</td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.1.7&nbsp;先进个人认定</h3>
+
+                            <h3>URL</h3>
+                            <div>/ap//recognise</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">认定的id</td><td class="td-identifier">id</td><td class="td-type">string</td><td class="td-remark">@mock=28553827112168</td></tr><tr class="tr-level-1"><td class="td-name">需要修改的状态</td><td class="td-identifier">status</td><td class="td-type">string</td><td class="td-remark">@mock=2</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">请求是否成功</td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr><tr class="tr-level-1"><td class="td-name">返回值</td><td class="td-identifier">value</td><td class="td-type">string</td><td class="td-remark">@mock=操作成功</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.1.8&nbsp;更变先进个人为往届</h3>
+
+                            <h3>URL</h3>
+                            <div>/ap/overdue</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">要变更的先进个人id（可批量，以逗号隔开）</td><td class="td-identifier">ids</td><td class="td-type">string</td><td class="td-remark">@mock=28553827112168,28555804170511</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">返回值</td><td class="td-identifier">value</td><td class="td-type">string</td><td class="td-remark">@mock=已全部更为历届</td></tr><tr class="tr-level-1"><td class="td-name">请求是否成功</td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.1.9&nbsp;修改先进个人</h3>
+
+                            <h3>URL</h3>
+                            <div>/ap/update</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">荣誉称号</td><td class="td-identifier">honoraryTitle</td><td class="td-type">string</td><td class="td-remark">@mock=武汉敬业代表</td></tr><tr class="tr-level-1"><td class="td-name">历史荣耀称号</td><td class="td-identifier">historyTitles|2</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---授予单位</td><td class="td-identifier">grantUnit</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;wo&#39;,&#39;wo&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---先进个人的id</td><td class="td-identifier">apId</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;29498561076287&#39;,&#39;30350710605661&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---获得时间</td><td class="td-identifier">obtainDate</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;2017-08-18&#39;,&#39;2017-08-18&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---荣誉id</td><td class="td-identifier">id</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;98373640853572&#39;,&#39;76012304456431&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---荣誉称号名</td><td class="td-identifier">name</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;圣斗士&#39;,&#39;黄金斗士&#39;)</td></tr><tr class="tr-level-1"><td class="td-name">性别</td><td class="td-identifier">gender</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">政治面貌</td><td class="td-identifier">politicalStatus</td><td class="td-type">string</td><td class="td-remark">@mock=群众</td></tr><tr class="tr-level-1"><td class="td-name">工作单位</td><td class="td-identifier">organization</td><td class="td-type">string</td><td class="td-remark">@mock=南海科技有限公司</td></tr><tr class="tr-level-1"><td class="td-name">身体状况</td><td class="td-identifier">physicalCondition</td><td class="td-type">string</td><td class="td-remark">@mock=健康</td></tr><tr class="tr-level-1"><td class="td-name">认定材料</td><td class="td-identifier">certificationMaterials</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---当时评审的主要事迹</td><td class="td-identifier">deedBriefing</td><td class="td-type">string</td><td class="td-remark">@mock=帮过人</td></tr><tr class="tr-level-2"><td class="td-name">---授予时间</td><td class="td-identifier">grantTime</td><td class="td-type">string</td><td class="td-remark">@mock=2017-08-16</td></tr><tr class="tr-level-2"><td class="td-name">---授予单位</td><td class="td-identifier">grantUnit</td><td class="td-type">string</td><td class="td-remark">@mock=dalao</td></tr><tr class="tr-level-2"><td class="td-name">---认定依据</td><td class="td-identifier">certificationBase</td><td class="td-type">string</td><td class="td-remark">@mock=哀莫能租</td></tr><tr class="tr-level-2"><td class="td-name">---材料的id</td><td class="td-identifier">id</td><td class="td-type">string</td><td class="td-remark">@mock=30350710610604</td></tr><tr class="tr-level-2"><td class="td-name">---时间或者档案等资料名称</td><td class="td-identifier">profileName</td><td class="td-type">string</td><td class="td-remark">@mock=秘密文件</td></tr><tr class="tr-level-2"><td class="td-name">---发文单位</td><td class="td-identifier">issuingUnit</td><td class="td-type">string</td><td class="td-remark">@mock=01</td></tr><tr class="tr-level-2"><td class="td-name">---表彰决定文件名及名号</td><td class="td-identifier">fileNameNumber</td><td class="td-type">string</td><td class="td-remark">@mock=0101</td></tr><tr class="tr-level-2"><td class="td-name">---提供档案，表彰决定等原始资料明确的荣誉称号待遇</td><td class="td-identifier">treatment</td><td class="td-type">string</td><td class="td-remark">@mock=通过了</td></tr><tr class="tr-level-2"><td class="td-name">---初审单位意见</td><td class="td-identifier">opinion</td><td class="td-type">string</td><td class="td-remark">@mock=无</td></tr><tr class="tr-level-1"><td class="td-name">先进个人状态信息</td><td class="td-identifier">statusInformation</td><td class="td-type">string</td><td class="td-remark">@mock=yes</td></tr><tr class="tr-level-1"><td class="td-name">电话</td><td class="td-identifier">tel</td><td class="td-type">string</td><td class="td-remark">@mock=122331213</td></tr><tr class="tr-level-1"><td class="td-name">家庭困难和收入情况</td><td class="td-identifier">familyDifficultiesAndEmployment</td><td class="td-type">string</td><td class="td-remark">@mock=贫穷</td></tr><tr class="tr-level-1"><td class="td-name">姓名</td><td class="td-identifier">name</td><td class="td-type">string</td><td class="td-remark">@mock=l</td></tr><tr class="tr-level-1"><td class="td-name">生日</td><td class="td-identifier">birthday</td><td class="td-type">string</td><td class="td-remark">@mock=2017-08-18</td></tr><tr class="tr-level-1"><td class="td-name">文化水平</td><td class="td-identifier">culturalLevel</td><td class="td-type">string</td><td class="td-remark">@mock=本科</td></tr><tr class="tr-level-1"><td class="td-name">主要事迹</td><td class="td-identifier">outstandingDeed</td><td class="td-type">string</td><td class="td-remark">@mock=保卫艾泽拉斯</td></tr><tr class="tr-level-1"><td class="td-name">享受待遇</td><td class="td-identifier">treatment</td><td class="td-type">string</td><td class="td-remark">@mock=8</td></tr><tr class="tr-level-1"><td class="td-name">民族</td><td class="td-identifier">nation</td><td class="td-type">string</td><td class="td-remark">@mock=汉</td></tr><tr class="tr-level-1"><td class="td-name">所属市州产业</td><td class="td-identifier">ownedCityIndustry</td><td class="td-type">string</td><td class="td-remark">@mock=广州</td></tr><tr class="tr-level-1"><td class="td-name">身份证</td><td class="td-identifier">identityCard</td><td class="td-type">string</td><td class="td-remark">@mock=999919919119a1129</td></tr><tr class="tr-level-1"><td class="td-name">职务</td><td class="td-identifier">duty</td><td class="td-type">string</td><td class="td-remark">@mock=gongzuo</td></tr><tr class="tr-level-1"><td class="td-name">先进个人id</td><td class="td-identifier">id</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-1"><td class="td-name">先进个人状态</td><td class="td-identifier">status</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">请求是否成功</td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr><tr class="tr-level-1"><td class="td-name">返回值</td><td class="td-identifier">value</td><td class="td-type">string</td><td class="td-remark">@mock=修改成功</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.1.10&nbsp;添加先进个人（申报）</h3>
+
+                            <h3>URL</h3>
+                            <div>/ap/addtion</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">姓名</td><td class="td-identifier">name</td><td class="td-type">string</td><td class="td-remark">@mock=l</td></tr><tr class="tr-level-1"><td class="td-name">历史荣耀称号</td><td class="td-identifier">historyTitles|2</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---获得时间</td><td class="td-identifier">obtainDate</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;2017-08-18&#39;,&#39;2017-08-18&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---荣誉称号名</td><td class="td-identifier">name</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;圣斗士&#39;,&#39;黄金斗士&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---授予单位</td><td class="td-identifier">grantUnit</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;wo&#39;,&#39;wo&#39;)</td></tr><tr class="tr-level-1"><td class="td-name">身份证</td><td class="td-identifier">identityCard</td><td class="td-type">string</td><td class="td-remark">@mock=999919919119a1129</td></tr><tr class="tr-level-1"><td class="td-name">性别</td><td class="td-identifier">gender</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">文化水平</td><td class="td-identifier">culturalLevel</td><td class="td-type">string</td><td class="td-remark">@mock=本科</td></tr><tr class="tr-level-1"><td class="td-name">所属市州产业</td><td class="td-identifier">ownedCityIndustry</td><td class="td-type">string</td><td class="td-remark">@mock=广州</td></tr><tr class="tr-level-1"><td class="td-name">荣誉称号</td><td class="td-identifier">honoraryTitle</td><td class="td-type">string</td><td class="td-remark">@mock=武汉敬业代表</td></tr><tr class="tr-level-1"><td class="td-name">主要事迹</td><td class="td-identifier">outstandingDeed</td><td class="td-type">string</td><td class="td-remark">@mock=保卫艾泽拉斯</td></tr><tr class="tr-level-1"><td class="td-name">身体状况</td><td class="td-identifier">physicalCondition</td><td class="td-type">string</td><td class="td-remark">@mock=健康</td></tr><tr class="tr-level-1"><td class="td-name">工作单位</td><td class="td-identifier">organization</td><td class="td-type">string</td><td class="td-remark">@mock=南海科技有限公司</td></tr><tr class="tr-level-1"><td class="td-name">电话</td><td class="td-identifier">tel</td><td class="td-type">string</td><td class="td-remark">@mock=122331213</td></tr><tr class="tr-level-1"><td class="td-name">职务</td><td class="td-identifier">duty</td><td class="td-type">string</td><td class="td-remark">@mock=gongzuo</td></tr><tr class="tr-level-1"><td class="td-name">先进个人状态信息</td><td class="td-identifier">statusInformation</td><td class="td-type">string</td><td class="td-remark">@mock=yes</td></tr><tr class="tr-level-1"><td class="td-name">认定材料</td><td class="td-identifier">certificationMaterials</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---表彰决定文件名及名号</td><td class="td-identifier">fileNameNumber</td><td class="td-type">string</td><td class="td-remark">@mock=0101</td></tr><tr class="tr-level-2"><td class="td-name">---授予时间</td><td class="td-identifier">grantTime</td><td class="td-type">string</td><td class="td-remark">@mock=2017-08-16</td></tr><tr class="tr-level-2"><td class="td-name">---授予单位</td><td class="td-identifier">grantUnit</td><td class="td-type">string</td><td class="td-remark">@mock=dalao</td></tr><tr class="tr-level-2"><td class="td-name">---时间或者档案等资料名称</td><td class="td-identifier">profileName</td><td class="td-type">string</td><td class="td-remark">@mock=秘密文件</td></tr><tr class="tr-level-2"><td class="td-name">---认定依据</td><td class="td-identifier">certificationBase</td><td class="td-type">string</td><td class="td-remark">@mock=哀莫能租</td></tr><tr class="tr-level-2"><td class="td-name">---发文单位</td><td class="td-identifier">issuingUnit</td><td class="td-type">string</td><td class="td-remark">@mock=01</td></tr><tr class="tr-level-2"><td class="td-name">---提供档案，表彰决定等原始资料明确的荣誉称号待遇</td><td class="td-identifier">treatment</td><td class="td-type">string</td><td class="td-remark">@mock=通过了</td></tr><tr class="tr-level-2"><td class="td-name">---当时评审的主要事迹</td><td class="td-identifier">deedBriefing</td><td class="td-type">string</td><td class="td-remark">@mock=帮过人</td></tr><tr class="tr-level-2"><td class="td-name">---初审单位意见</td><td class="td-identifier">opinion</td><td class="td-type">string</td><td class="td-remark">@mock=无</td></tr><tr class="tr-level-1"><td class="td-name">生日</td><td class="td-identifier">birthday</td><td class="td-type">string</td><td class="td-remark">@mock=2017-08-18</td></tr><tr class="tr-level-1"><td class="td-name">家庭困难和收入情况</td><td class="td-identifier">familyDifficultiesAndEmployment</td><td class="td-type">string</td><td class="td-remark">@mock=贫穷</td></tr><tr class="tr-level-1"><td class="td-name">政治面貌</td><td class="td-identifier">politicalStatus</td><td class="td-type">string</td><td class="td-remark">@mock=群众</td></tr><tr class="tr-level-1"><td class="td-name">民族</td><td class="td-identifier">nation</td><td class="td-type">string</td><td class="td-remark">@mock=汉</td></tr><tr class="tr-level-1"><td class="td-name">先进个人状态</td><td class="td-identifier">status</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">享受待遇</td><td class="td-identifier">treatment</td><td class="td-type">string</td><td class="td-remark">@mock=8</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">请求是否成功</td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr><tr class="tr-level-1"><td class="td-name">返回值</td><td class="td-identifier">value</td><td class="td-type">string</td><td class="td-remark">@mock=修改成功</td></tr></table>
+                        </div>
+                                    </div>
+                    </div>
+            <div class="module">
+            <h1>2&nbsp;先进集体管理</h1>
+                            <div class="page">
+                    <h2>2.1&nbsp;先进集体管理</h2>
+                                            <div class="action">
+                            <h3>2.1.1&nbsp;申报先进集体</h3>
+
+                            <h3>URL</h3>
+                            <div>ac/addition</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div>就是新增先进集体</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">联系方式</td><td class="td-identifier">contactDetail</td><td class="td-type">string</td><td class="td-remark">@mock=123456</td></tr><tr class="tr-level-1"><td class="td-name">突出事迹</td><td class="td-identifier">outstandingDeed</td><td class="td-type">string</td><td class="td-remark">@mock=2014年5月在美国纳斯达克证券交易所正式挂牌上市。 </td></tr><tr class="tr-level-1"><td class="td-name">先进集体名称</td><td class="td-identifier">name</td><td class="td-type">string</td><td class="td-remark">@mock=京东</td></tr><tr class="tr-level-1"><td class="td-name">荣誉称号</td><td class="td-identifier">honoraryTitle</td><td class="td-type">string</td><td class="td-remark">@mock=电商大厂</td></tr><tr class="tr-level-1"><td class="td-name">负责人名字</td><td class="td-identifier">principalName</td><td class="td-type">string</td><td class="td-remark">@mock=刘强东</td></tr><tr class="tr-level-1"><td class="td-name">所属市州产业</td><td class="td-identifier">ownedCityIndustry</td><td class="td-type">string</td><td class="td-remark">@mock=四川成都IT产业</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">value</td><td class="td-type">string</td><td class="td-remark">@mock=申报成功</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>2.1.2&nbsp;分页查询先进集体</h3>
+
+                            <h3>URL</h3>
+                            <div>ac/list</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">单页显示记录数</td><td class="td-identifier">rows</td><td class="td-type">number</td><td class="td-remark">@mock=3</td></tr><tr class="tr-level-1"><td class="td-name">先进集体搜索条件</td><td class="td-identifier">key</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---联系方式</td><td class="td-identifier">contactDetail</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---新增时间</td><td class="td-identifier">additionTime</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---id</td><td class="td-identifier">id</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---所属市州产业</td><td class="td-identifier">ownedCityIndustry</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---突出事迹</td><td class="td-identifier">outstandingDeed</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---荣誉称号</td><td class="td-identifier">honoraryTitle</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---公司名称</td><td class="td-identifier">name</td><td class="td-type">string</td><td class="td-remark">@mock=富士康</td></tr><tr class="tr-level-2"><td class="td-name">---负责人名字</td><td class="td-identifier">principalName</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">页码</td><td class="td-identifier">page</td><td class="td-type">number</td><td class="td-remark">@mock=2</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">value</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---获得的记录之一，以下都为先进集体的属性</td><td class="td-identifier">data|2</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-3"><td class="td-name">------</td><td class="td-identifier">honoraryTitle</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;良心企业&#39;,&#39;良心企业&#39;)</td></tr><tr class="tr-level-3"><td class="td-name">------</td><td class="td-identifier">contactDetail</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;123456&#39;,&#39;123456&#39;)</td></tr><tr class="tr-level-3"><td class="td-name">------</td><td class="td-identifier">isCurrent</td><td class="td-type">number</td><td class="td-remark">@mock=$order(1,1)</td></tr><tr class="tr-level-3"><td class="td-name">------</td><td class="td-identifier">name</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;富士康&#39;,&#39;富士康&#39;)</td></tr><tr class="tr-level-3"><td class="td-name">------</td><td class="td-identifier">additionTime</td><td class="td-type">number</td><td class="td-remark">@mock=$order(1502294400000,1502380800000)</td></tr><tr class="tr-level-3"><td class="td-name">------</td><td class="td-identifier">principalName</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;1&#39;,&#39;1&#39;)</td></tr><tr class="tr-level-3"><td class="td-name">------</td><td class="td-identifier">id</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;23682330041928&#39;,&#39;24146138769577&#39;)</td></tr><tr class="tr-level-3"><td class="td-name">------</td><td class="td-identifier">outstandingDeed</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;。2016年净收入为381.79亿元人民币（54.99亿美元），在线游戏净收入为279.80亿元人民币（40.30亿美元），广告服务净收入为21.52亿元人民币（3.10亿美元），邮箱、电商及其他业务的净收入为80.46亿元人民币（11.59亿美元）。&#39;,&#39;现拥有120余万员工及全球顶尖客户群。&#39;)</td></tr><tr class="tr-level-3"><td class="td-name">------</td><td class="td-identifier">ownedCityIndustry</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;四川省成都市轻工业&#39;,&#39;四川省成都市轻工业&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---总页数</td><td class="td-identifier">pages</td><td class="td-type">number</td><td class="td-remark">@mock=2</td></tr><tr class="tr-level-2"><td class="td-name">---每页记录数</td><td class="td-identifier">rows</td><td class="td-type">number</td><td class="td-remark">@mock=3</td></tr><tr class="tr-level-2"><td class="td-name">---当前页码</td><td class="td-identifier">currentPage</td><td class="td-type">number</td><td class="td-remark">@mock=2</td></tr><tr class="tr-level-2"><td class="td-name">---总记录数</td><td class="td-identifier">total</td><td class="td-type">number</td><td class="td-remark">@mock=5</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>2.1.3&nbsp;批量删除先进集体</h3>
+
+                            <h3>URL</h3>
+                            <div>ac/delete</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div>提供多个先进集体的id，一次性删除</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">将要被删除的先进集体的id，id和id之间用逗号隔开</td><td class="td-identifier">ids</td><td class="td-type">string</td><td class="td-remark">@mock=24414865479541,26757676099765,24146145878304</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">value</td><td class="td-type">string</td><td class="td-remark">@mock=删除成功</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>2.1.4&nbsp;修改先进集体</h3>
+
+                            <h3>URL</h3>
+                            <div>ac/update</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div>依据id找到将要修改的先进集体，并按提供的属性进行修改</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">该id的先进集体的所属市州产业将被修改</td><td class="td-identifier">ownedCItyIndustry</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-1"><td class="td-name">该id的先进集体的荣誉称号将被修改</td><td class="td-identifier">honoraryTitle</td><td class="td-type">string</td><td class="td-remark">@mock=电器零售企业</td></tr><tr class="tr-level-1"><td class="td-name">该id的先进集体的联系方式将被修改</td><td class="td-identifier">contactDetail</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-1"><td class="td-name">先进集体的id</td><td class="td-identifier">id</td><td class="td-type">string</td><td class="td-remark">@mock=23681903687662</td></tr><tr class="tr-level-1"><td class="td-name">该id的先进集体的名称将被修改</td><td class="td-identifier">name</td><td class="td-type">string</td><td class="td-remark">@mock=苏宁</td></tr><tr class="tr-level-1"><td class="td-name">该id的先进集体的突出事迹将被修改</td><td class="td-identifier">outstandingDeed</td><td class="td-type">string</td><td class="td-remark">@mock=2014年10月26日，中国民营500强发布，苏宁以2798.13亿元的营业收入和综合实力名列第一。</td></tr><tr class="tr-level-1"><td class="td-name">该id的先进集体的负责人名字将被修改</td><td class="td-identifier">principalName</td><td class="td-type">string</td><td class="td-remark">@mock=张近东</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">value</td><td class="td-type">string</td><td class="td-remark">@mock=修改成功</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>2.1.5&nbsp;先进集体数据导入</h3>
+
+                            <h3>URL</h3>
+                            <div>ac/upload</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div>选择本地一个包含先进集体信息的excel文件，上传，从而实现先进集体数据导入</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">value</td><td class="td-type">string</td><td class="td-remark">@mock=成功导入3条采样地记录</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>2.1.6&nbsp;先进集体数据导出</h3>
+
+                            <h3>URL</h3>
+                            <div>ac/export</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div>导出日期（申报日期）区间内的所有先进集体的信息，以excel文件的形式下载给用户</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">开始日期</td><td class="td-identifier">beginDate</td><td class="td-type">string</td><td class="td-remark">@mock=2017-08-02</td></tr><tr class="tr-level-1"><td class="td-name">结束日期</td><td class="td-identifier">endDate</td><td class="td-type">string</td><td class="td-remark">@mock=2017-08-09</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead></table>
+                        </div>
+                                            <div class="action">
+                            <h3>2.1.7&nbsp;先进集体查询结果下载</h3>
+
+                            <h3>URL</h3>
+                            <div>ac/download</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div>查询结果提供ids，把查询的结果以excel文件的方式下载给用户</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">查询结果中个先进集体的id，各个id间用逗号隔开</td><td class="td-identifier">ids</td><td class="td-type">string</td><td class="td-remark">@mock=23547346857360,23546501198859,26780087425625,23551818942467,23544879869153</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead></table>
+                        </div>
+                                            <div class="action">
+                            <h3>2.1.8&nbsp;统计先进集体</h3>
+
+                            <h3>URL</h3>
+                            <div>ac/statics</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div>给定统计区间，按荣誉称号统计先进集体</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">开始日期</td><td class="td-identifier">beginDate</td><td class="td-type">string</td><td class="td-remark">@mock=2017-08-02</td></tr><tr class="tr-level-1"><td class="td-name">结束日期</td><td class="td-identifier">endDate</td><td class="td-type">string</td><td class="td-remark">@mock=2017-08-11</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">value|3</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---荣誉称号</td><td class="td-identifier">title</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;BAT&#39;,&#39;电器零售企业&#39;,&#39;良心企业&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---拥有该荣誉称号的先进集体数目</td><td class="td-identifier">num</td><td class="td-type">number</td><td class="td-remark">@mock=$order(3,2,9)</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>2.1.9&nbsp;查询最近一次先进集体统计结果</h3>
+
+                            <h3>URL</h3>
+                            <div>ac/lastStaticsResult</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">value</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---创建日期</td><td class="td-identifier">createDate</td><td class="td-type">number</td><td class="td-remark">@mock=1502699343000</td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">id</td><td class="td-type">number</td><td class="td-remark">@mock=2</td></tr><tr class="tr-level-2"><td class="td-name">---统计结果类型：1表示先进集体</td><td class="td-identifier">statisticsType</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-2"><td class="td-name">---统计结果内容</td><td class="td-identifier">resultContext</td><td class="td-type">string</td><td class="td-remark">@mock=[{&quot;num&quot;:3,&quot;title&quot;:&quot;BAT&quot;},{&quot;num&quot;:2,&quot;title&quot;:&quot;电器零售企业&quot;},{&quot;num&quot;:9,&quot;title&quot;:&quot;良心企业&quot;}]</td></tr></table>
+                        </div>
+                                    </div>
+                    </div>
+            <div class="module">
+            <h1>3&nbsp;系统管理</h1>
+                            <div class="page">
+                    <h2>3.1&nbsp;数据备份管理</h2>
+                                            <div class="action">
+                            <h3>3.1.1&nbsp;删除备份文件</h3>
+
+                            <h3>URL</h3>
+                            <div>/backups/deletion</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">待删除文件名称</td><td class="td-identifier">fileName</td><td class="td-type">string</td><td class="td-remark">@mock=文件</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">value</td><td class="td-type">string</td><td class="td-remark">@mock=删除备份文件成功</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>3.1.2&nbsp;生成新的备份文件</h3>
+
+                            <h3>URL</h3>
+                            <div>/backups/backup</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">文件名称</td><td class="td-identifier">fileName</td><td class="td-type">string</td><td class="td-remark">@mock=backup_2</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">value</td><td class="td-type">string</td><td class="td-remark">@mock=生存备份文件[backup_2]成功</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>3.1.3&nbsp;获取数据备份文件列表</h3>
+
+                            <h3>URL</h3>
+                            <div>/backups/list</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div>反悔的文件列表按备份(上次修改)时间倒序排序</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">结果码,0=成功</td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr><tr class="tr-level-1"><td class="td-name">备份文件列表</td><td class="td-identifier">value|2</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---文件名称</td><td class="td-identifier">fileName</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;backup_2&#39;,&#39;backup_1&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---上次修改时间</td><td class="td-identifier">lastTime</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;2017-08-14 09:13:44&#39;,&#39;2017-08-14 09:13:38&#39;)</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>3.1.4&nbsp;还原备份文件</h3>
+
+                            <h3>URL</h3>
+                            <div>/backups/restore</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div>该请求执行时间较长</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">待还原备份文件名称</td><td class="td-identifier">fileName</td><td class="td-type">string</td><td class="td-remark">@mock=backup_1</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">value</td><td class="td-type">string</td><td class="td-remark">@mock=还原备份文件[backup_2]成功</td></tr></table>
+                        </div>
+                                    </div>
+                            <div class="page">
+                    <h2>3.2&nbsp;用户信息管理</h2>
+                                            <div class="action">
+                            <h3>3.2.1&nbsp;修改密码</h3>
+
+                            <h3>URL</h3>
+                            <div>/updatePassword</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">password</td><td class="td-type">string</td><td class="td-remark">@mock=555555</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">id</td><td class="td-type">string</td><td class="td-remark">@mock=zhangsan</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">value</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>3.2.2&nbsp;修改用户信息</h3>
+
+                            <h3>URL</h3>
+                            <div>/update</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">gender</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">identityCard</td><td class="td-type">string</td><td class="td-remark">@mock=78878787</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">id</td><td class="td-type">string</td><td class="td-remark">@mock=zhangsan</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">function</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">tel</td><td class="td-type">string</td><td class="td-remark">@mock=87878787</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">email</td><td class="td-type">string</td><td class="td-remark">@mock=mmmm</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">name</td><td class="td-type">string</td><td class="td-remark">@mock=sb</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">value</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>3.2.3&nbsp;修改用户权限</h3>
+
+                            <h3>URL</h3>
+                            <div>/updateAccess</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">function</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">id</td><td class="td-type">string</td><td class="td-remark">@mock=zhangsan</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">value</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>3.2.4&nbsp;删除用户信息</h3>
+
+                            <h3>URL</h3>
+                            <div>/delete</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">id</td><td class="td-type">string</td><td class="td-remark">@mock=hhhhh</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">value</td><td class="td-type">string</td><td class="td-remark">@mock=成功删除1条用户数据</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>3.2.5&nbsp;新增用户信息</h3>
+
+                            <h3>URL</h3>
+                            <div>/save</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">email</td><td class="td-type">string</td><td class="td-remark">@mock=mmmm</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">id</td><td class="td-type">string</td><td class="td-remark">@mock=hhhhh</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">tel</td><td class="td-type">string</td><td class="td-remark">@mock=87878787</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">name</td><td class="td-type">string</td><td class="td-remark">@mock=sb</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">ownedAssociation</td><td class="td-type">number</td><td class="td-remark"></td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">identityCard</td><td class="td-type">string</td><td class="td-remark">@mock=78878787</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">gender</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">function</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">password</td><td class="td-type">string</td><td class="td-remark">@mock=123</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">value</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>3.2.6&nbsp;用户登录</h3>
+
+                            <h3>URL</h3>
+                            <div>/login</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">id</td><td class="td-type">string</td><td class="td-remark">@mock=zhangsan</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">password</td><td class="td-type">string</td><td class="td-remark">@mock=zhangsn</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">value</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>3.2.7&nbsp;请求分页</h3>
+
+                            <h3>URL</h3>
+                            <div>/list</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">rows</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">page</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">value</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">pages</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">total</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">data</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-3"><td class="td-name">------</td><td class="td-identifier">email</td><td class="td-type">string</td><td class="td-remark">@mock=mmmm</td></tr><tr class="tr-level-3"><td class="td-name">------</td><td class="td-identifier">ownedAssociation</td><td class="td-type"></td><td class="td-remark"></td></tr><tr class="tr-level-3"><td class="td-name">------</td><td class="td-identifier">ownedAssociationName</td><td class="td-type"></td><td class="td-remark"></td></tr><tr class="tr-level-3"><td class="td-name">------</td><td class="td-identifier">id</td><td class="td-type">string</td><td class="td-remark">@mock=zhangsan</td></tr><tr class="tr-level-3"><td class="td-name">------</td><td class="td-identifier">password</td><td class="td-type"></td><td class="td-remark"></td></tr><tr class="tr-level-3"><td class="td-name">------</td><td class="td-identifier">function</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-3"><td class="td-name">------</td><td class="td-identifier">identityCard</td><td class="td-type">string</td><td class="td-remark">@mock=78878787</td></tr><tr class="tr-level-3"><td class="td-name">------</td><td class="td-identifier">tel</td><td class="td-type">string</td><td class="td-remark">@mock=87878787</td></tr><tr class="tr-level-3"><td class="td-name">------</td><td class="td-identifier">name</td><td class="td-type">string</td><td class="td-remark">@mock=sb</td></tr><tr class="tr-level-3"><td class="td-name">------</td><td class="td-identifier">gender</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">currentPage</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">rows</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>3.2.8&nbsp;退出登录</h3>
+
+                            <h3>URL</h3>
+                            <div>/logout</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier"></td><td class="td-type"></td><td class="td-remark"></td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">value</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr></table>
+                        </div>
+                                    </div>
+                    </div>
+            <div class="module">
+            <h1>4&nbsp;历届劳模管理</h1>
+                            <div class="page">
+                    <h2>4.1&nbsp;历届劳模管理（个人）</h2>
+                                            <div class="action">
+                            <h3>4.1.1&nbsp;修改历届劳模（个人）</h3>
+
+                            <h3>URL</h3>
+                            <div>/AllModelWorkerController/updateAdvancedPerson</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">身份证号</td><td class="td-identifier">identityCard</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">名字</td><td class="td-identifier">name</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">身体健康情况</td><td class="td-identifier">physicalCondition</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">文化程度</td><td class="td-identifier">culturalLevel</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">先进个人id</td><td class="td-identifier">id</td><td class="td-type">string</td><td class="td-remark">@mock=29518090552855</td></tr><tr class="tr-level-1"><td class="td-name">家庭困难及就业情况</td><td class="td-identifier">familyDifficultiesAndEmployment</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">劳模荣誉称号</td><td class="td-identifier">honoraryTitle</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">享受待遇</td><td class="td-identifier">treatment</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">性别</td><td class="td-identifier">gender</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">认定材料</td><td class="td-identifier">certificationMaterials</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---表彰决定文件名及文号</td><td class="td-identifier">fileNameNumber</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-2"><td class="td-name">---当时评选的主要事迹简述</td><td class="td-identifier">deedBriefing</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-2"><td class="td-name">---材料id</td><td class="td-identifier">id</td><td class="td-type">string</td><td class="td-remark">@mock=29518090553742</td></tr><tr class="tr-level-2"><td class="td-name">---认定依据</td><td class="td-identifier">certificationBase</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-2"><td class="td-name">---提供档案，表彰决定等原始资料明确的荣誉称号待遇</td><td class="td-identifier">treatment</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-2"><td class="td-name">---授予时间</td><td class="td-identifier">grantTime</td><td class="td-type">string</td><td class="td-remark">@mock=2017-8-17</td></tr><tr class="tr-level-2"><td class="td-name">---时间或者档案等资料名称</td><td class="td-identifier">profileName</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-2"><td class="td-name">---初审单位意见</td><td class="td-identifier">opinion</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-2"><td class="td-name">---发文单位</td><td class="td-identifier">issuingUnit</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-2"><td class="td-name">---授予单位</td><td class="td-identifier">grantUnit</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">主要突出事迹</td><td class="td-identifier">outstandingDeed</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">联系电话</td><td class="td-identifier">tel</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">职务</td><td class="td-identifier">duty</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">劳模状态相关信息</td><td class="td-identifier">statusInformation</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">工作单位</td><td class="td-identifier">organization</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">政治面貌</td><td class="td-identifier">politicalStatus</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">生日</td><td class="td-identifier">birthday</td><td class="td-type">string</td><td class="td-remark">@mock=2017-8-17</td></tr><tr class="tr-level-1"><td class="td-name">所属市州产业</td><td class="td-identifier">ownedCityIndustry</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">过往荣誉称号</td><td class="td-identifier">historyTitles|2</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---授予单位</td><td class="td-identifier">grantUnit</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;3&#39;,&#39;1&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---荣誉称号名称</td><td class="td-identifier">name</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;3&#39;,&#39;1&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---所属的先进个人</td><td class="td-identifier">apId</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;29518090552855&#39;,&#39;29518090552855&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---过往荣誉称号id</td><td class="td-identifier">id</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;75284637302003&#39;,&#39;42192633437607&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---何时获得</td><td class="td-identifier">obtainDate</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;2017-8-17&#39;,&#39;2017-8-18&#39;)</td></tr><tr class="tr-level-1"><td class="td-name">劳模状态</td><td class="td-identifier">status</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">材料id</td><td class="td-identifier">certificationMaterialsId</td><td class="td-type">string</td><td class="td-remark">@mock=29518090553742</td></tr><tr class="tr-level-1"><td class="td-name">身份证号</td><td class="td-identifier">nation</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">返回的对象</td><td class="td-identifier">value</td><td class="td-type">string</td><td class="td-remark">@mock=修改历届劳模（个人）成功</td></tr><tr class="tr-level-1"><td class="td-name">是否成功</td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>4.1.2&nbsp;删除历届劳模（个人）</h3>
+
+                            <h3>URL</h3>
+                            <div>/AllModelWorkerController/deleteAdvancedPerson</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">删除的id（可以多个，逗号隔开）</td><td class="td-identifier">ids</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">返回的对象</td><td class="td-identifier">value</td><td class="td-type">string</td><td class="td-remark">@mock=删除历届劳模（个人）成功</td></tr><tr class="tr-level-1"><td class="td-name">是否成功</td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>4.1.3&nbsp;下载历届劳模（个人）</h3>
+
+                            <h3>URL</h3>
+                            <div>/AllModelWorkerController/downloadData</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">下载的历届劳模的id</td><td class="td-identifier">ids</td><td class="td-type">string</td><td class="td-remark">@mock=29518090552855</td></tr><tr class="tr-level-1"><td class="td-name">类型，0表示是集体，1表示是个人</td><td class="td-identifier">type</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">请求是否成功</td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=500</td></tr><tr class="tr-level-1"><td class="td-name">返回的对象</td><td class="td-identifier">value</td><td class="td-type">string</td><td class="td-remark">@mock=未知运行异常</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>4.1.4&nbsp;新增历届劳模（个人）</h3>
+
+                            <h3>URL</h3>
+                            <div>/AllModelWorkerController/saveAdvancedPerson</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">性别</td><td class="td-identifier">gender</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">劳模荣誉称号</td><td class="td-identifier">honoraryTitle</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">身份证号</td><td class="td-identifier">nation</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">文化程度</td><td class="td-identifier">culturalLevel</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">生日</td><td class="td-identifier">birthday</td><td class="td-type">string</td><td class="td-remark">@mock=2017-8-17</td></tr><tr class="tr-level-1"><td class="td-name">名字</td><td class="td-identifier">name</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">政治面貌</td><td class="td-identifier">politicalStatus</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">劳模状态</td><td class="td-identifier">status</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">职务</td><td class="td-identifier">duty</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">工作单位</td><td class="td-identifier">organization</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">所属市州产业</td><td class="td-identifier">ownedCityIndustry</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">劳模状态相关信息</td><td class="td-identifier">statusInformation</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">家庭困难及就业情况</td><td class="td-identifier">familyDifficultiesAndEmployment</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">身份证号</td><td class="td-identifier">identityCard</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">过往荣誉称号</td><td class="td-identifier">historyTitles|2</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---荣誉称号名称</td><td class="td-identifier">name</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;3&#39;,&#39;1&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---授予单位</td><td class="td-identifier">grantUnit</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;3&#39;,&#39;1&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---何时获得</td><td class="td-identifier">obtainDate</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;2017-8-17&#39;,&#39;2017-8-18&#39;)</td></tr><tr class="tr-level-1"><td class="td-name">认定材料</td><td class="td-identifier">certificationMaterials</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---当时评选的主要事迹简述</td><td class="td-identifier">deedBriefing</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-2"><td class="td-name">---授予时间</td><td class="td-identifier">grantTime</td><td class="td-type">string</td><td class="td-remark">@mock=2017-8-17</td></tr><tr class="tr-level-2"><td class="td-name">---发文单位</td><td class="td-identifier">issuingUnit</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-2"><td class="td-name">---提供档案，表彰决定等原始资料明确的荣誉称号待遇</td><td class="td-identifier">treatment</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-2"><td class="td-name">---初审单位意见</td><td class="td-identifier">opinion</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-2"><td class="td-name">---表彰决定文件名及文号</td><td class="td-identifier">fileNameNumber</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-2"><td class="td-name">---时间或者档案等资料名称</td><td class="td-identifier">profileName</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-2"><td class="td-name">---认定依据</td><td class="td-identifier">certificationBase</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-2"><td class="td-name">---授予单位</td><td class="td-identifier">grantUnit</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">联系电话</td><td class="td-identifier">tel</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">享受待遇</td><td class="td-identifier">treatment</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">主要突出事迹</td><td class="td-identifier">outstandingDeed</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">身体健康情况</td><td class="td-identifier">physicalCondition</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">是否成功</td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr><tr class="tr-level-1"><td class="td-name">返回的对象</td><td class="td-identifier">value</td><td class="td-type">string</td><td class="td-remark">@mock=新增历届劳模（个人）成功</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>4.1.5&nbsp;查询历届劳模（个人）</h3>
+
+                            <h3>URL</h3>
+                            <div>/AllModelWorkerController/listAdvancedPerson</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">当前第几页</td><td class="td-identifier">page</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">一页多少行</td><td class="td-identifier">rows</td><td class="td-type">string</td><td class="td-remark">@mock=9</td></tr><tr class="tr-level-1"><td class="td-name">条件</td><td class="td-identifier">key</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---工作单位</td><td class="td-identifier">organization</td><td class="td-type">string</td><td class="td-remark">@mock=南海科技有限公司</td></tr><tr class="tr-level-2"><td class="td-name">---享受待遇</td><td class="td-identifier">treatment</td><td class="td-type">string</td><td class="td-remark">@mock=8</td></tr><tr class="tr-level-2"><td class="td-name">---生日</td><td class="td-identifier">birthday</td><td class="td-type">string</td><td class="td-remark">@mock=2017-08-18</td></tr><tr class="tr-level-2"><td class="td-name">---文化程度</td><td class="td-identifier">culturalLevel</td><td class="td-type">string</td><td class="td-remark">@mock=本科</td></tr><tr class="tr-level-2"><td class="td-name">---民族</td><td class="td-identifier">nation</td><td class="td-type">string</td><td class="td-remark">@mock=汉</td></tr><tr class="tr-level-2"><td class="td-name">---新增该记录的时间</td><td class="td-identifier">additionTime</td><td class="td-type">string</td><td class="td-remark">@mock=2017-08-18</td></tr><tr class="tr-level-2"><td class="td-name">---家庭困难及就业情况</td><td class="td-identifier">familyDifficultiesAndEmployment</td><td class="td-type">string</td><td class="td-remark">@mock=贫穷</td></tr><tr class="tr-level-2"><td class="td-name">---劳模荣誉称号</td><td class="td-identifier">honoraryTitle</td><td class="td-type">string</td><td class="td-remark">@mock=武汉敬业代表</td></tr><tr class="tr-level-2"><td class="td-name">---名字</td><td class="td-identifier">name</td><td class="td-type">string</td><td class="td-remark">@mock=l</td></tr><tr class="tr-level-2"><td class="td-name">---政治面貌</td><td class="td-identifier">politicalStatus</td><td class="td-type">string</td><td class="td-remark">@mock=群众</td></tr><tr class="tr-level-2"><td class="td-name">---电话</td><td class="td-identifier">tel</td><td class="td-type">string</td><td class="td-remark">@mock=122331213</td></tr><tr class="tr-level-2"><td class="td-name">---职务</td><td class="td-identifier">duty</td><td class="td-type">string</td><td class="td-remark">@mock=gongzuo</td></tr><tr class="tr-level-2"><td class="td-name">---身体健康情况</td><td class="td-identifier">physicalCondition</td><td class="td-type">string</td><td class="td-remark">@mock=健康</td></tr><tr class="tr-level-2"><td class="td-name">---所属市州产业</td><td class="td-identifier">ownedCityIndustry</td><td class="td-type">string</td><td class="td-remark">@mock=广州</td></tr><tr class="tr-level-2"><td class="td-name">---性别</td><td class="td-identifier">gender</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-2"><td class="td-name">---身份证号</td><td class="td-identifier">identityCard</td><td class="td-type">string</td><td class="td-remark">@mock=999919919119a1129</td></tr><tr class="tr-level-2"><td class="td-name">---主要突出事迹</td><td class="td-identifier">outstandingDeed</td><td class="td-type">string</td><td class="td-remark">@mock=保卫艾泽拉斯</td></tr><tr class="tr-level-2"><td class="td-name">---劳模状态</td><td class="td-identifier">status</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">请求是否成功</td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr><tr class="tr-level-1"><td class="td-name">返回的对象</td><td class="td-identifier">value</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---总共多少页</td><td class="td-identifier">pages</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-2"><td class="td-name">---数据</td><td class="td-identifier">data</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-3"><td class="td-name">------劳模状态相关信息</td><td class="td-identifier">statusInformation</td><td class="td-type">string</td><td class="td-remark">@mock=yes</td></tr><tr class="tr-level-3"><td class="td-name">------享受待遇</td><td class="td-identifier">treatment</td><td class="td-type">number</td><td class="td-remark">@mock=8</td></tr><tr class="tr-level-3"><td class="td-name">------突出事迹</td><td class="td-identifier">outstandingDeed</td><td class="td-type">string</td><td class="td-remark">@mock=保卫艾泽拉斯</td></tr><tr class="tr-level-3"><td class="td-name">------过往荣誉称号</td><td class="td-identifier">historyTitles</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-4"><td class="td-name">---------何时获得</td><td class="td-identifier">obtainDate</td><td class="td-type">number</td><td class="td-remark">@mock=$order(1502985600000,1502985600000)</td></tr><tr class="tr-level-4"><td class="td-name">---------所属的先进个人</td><td class="td-identifier">apId</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;30384093344135&#39;,&#39;30384093344135&#39;)</td></tr><tr class="tr-level-4"><td class="td-name">---------荣誉称号名称</td><td class="td-identifier">name</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;守望先锋&#39;,&#39;守望先锋&#39;)</td></tr><tr class="tr-level-4"><td class="td-name">---------授予单位</td><td class="td-identifier">grantUnit</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;wo&#39;,&#39;wo&#39;)</td></tr><tr class="tr-level-4"><td class="td-name">---------过往荣誉称号id</td><td class="td-identifier">id</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;34346064615940&#39;,&#39;42985495795172&#39;)</td></tr><tr class="tr-level-3"><td class="td-name">------文化程度</td><td class="td-identifier">culturalLevel</td><td class="td-type">string</td><td class="td-remark">@mock=本科</td></tr><tr class="tr-level-3"><td class="td-name">------是否当届</td><td class="td-identifier">isCurrent</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-3"><td class="td-name">------所属单位</td><td class="td-identifier">organization</td><td class="td-type">string</td><td class="td-remark">@mock=南海科技有限公司</td></tr><tr class="tr-level-3"><td class="td-name">------身体健康情况</td><td class="td-identifier">physicalCondition</td><td class="td-type">string</td><td class="td-remark">@mock=健康</td></tr><tr class="tr-level-3"><td class="td-name">------名字</td><td class="td-identifier">name</td><td class="td-type">string</td><td class="td-remark">@mock=l</td></tr><tr class="tr-level-3"><td class="td-name">------所属市州产业</td><td class="td-identifier">ownedCityIndustry</td><td class="td-type">string</td><td class="td-remark">@mock=广州</td></tr><tr class="tr-level-3"><td class="td-name">------先进个人id</td><td class="td-identifier">id</td><td class="td-type">string</td><td class="td-remark">@mock=30384093344135</td></tr><tr class="tr-level-3"><td class="td-name">------生日</td><td class="td-identifier">birthday</td><td class="td-type">number</td><td class="td-remark">@mock=1502985600000</td></tr><tr class="tr-level-3"><td class="td-name">------劳模状态</td><td class="td-identifier">status</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-3"><td class="td-name">------职务</td><td class="td-identifier">duty</td><td class="td-type">string</td><td class="td-remark">@mock=gongzuo</td></tr><tr class="tr-level-3"><td class="td-name">------家庭困难和就业情况</td><td class="td-identifier">familyDifficultiesAndEmployment</td><td class="td-type">string</td><td class="td-remark">@mock=贫穷</td></tr><tr class="tr-level-3"><td class="td-name">------新增该记录的时间</td><td class="td-identifier">additionTime</td><td class="td-type">number</td><td class="td-remark">@mock=1502985600000</td></tr><tr class="tr-level-3"><td class="td-name">------性别</td><td class="td-identifier">gender</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-3"><td class="td-name">------荣誉称号认定材料</td><td class="td-identifier">certificationMaterials</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-4"><td class="td-name">---------初审单位意见</td><td class="td-identifier">opinion</td><td class="td-type">string</td><td class="td-remark">@mock=无</td></tr><tr class="tr-level-4"><td class="td-name">---------授予单位</td><td class="td-identifier">grantUnit</td><td class="td-type">string</td><td class="td-remark">@mock=dalao</td></tr><tr class="tr-level-4"><td class="td-name">---------授予时间</td><td class="td-identifier">grantTime</td><td class="td-type">number</td><td class="td-remark">@mock=1502812800000</td></tr><tr class="tr-level-4"><td class="td-name">---------提供档案，表彰决定等原始资料明确的荣誉称号待遇</td><td class="td-identifier">treatment</td><td class="td-type">string</td><td class="td-remark">@mock=通过了</td></tr><tr class="tr-level-4"><td class="td-name">---------时间或者档案等资料名称</td><td class="td-identifier">profileName</td><td class="td-type">string</td><td class="td-remark">@mock=秘密文件</td></tr><tr class="tr-level-4"><td class="td-name">---------当时评选的主要事迹简述</td><td class="td-identifier">deedBriefing</td><td class="td-type">string</td><td class="td-remark">@mock=帮过人</td></tr><tr class="tr-level-4"><td class="td-name">---------认定依据</td><td class="td-identifier">certificationBase</td><td class="td-type">string</td><td class="td-remark">@mock=哀莫能租</td></tr><tr class="tr-level-4"><td class="td-name">---------材料id</td><td class="td-identifier">id</td><td class="td-type">string</td><td class="td-remark">@mock=30384093343328</td></tr><tr class="tr-level-4"><td class="td-name">---------发文单位</td><td class="td-identifier">issuingUnit</td><td class="td-type">string</td><td class="td-remark">@mock=01</td></tr><tr class="tr-level-4"><td class="td-name">---------表彰决定文件名及文号</td><td class="td-identifier">fileNameNumber</td><td class="td-type">string</td><td class="td-remark">@mock=0101</td></tr><tr class="tr-level-3"><td class="td-name">------认定材料id</td><td class="td-identifier">certificationMaterialsId</td><td class="td-type"></td><td class="td-remark"></td></tr><tr class="tr-level-3"><td class="td-name">------政治面貌</td><td class="td-identifier">politicalStatus</td><td class="td-type">string</td><td class="td-remark">@mock=群众</td></tr><tr class="tr-level-3"><td class="td-name">------电话</td><td class="td-identifier">tel</td><td class="td-type">string</td><td class="td-remark">@mock=122331213</td></tr><tr class="tr-level-3"><td class="td-name">------身份证号</td><td class="td-identifier">identityCard</td><td class="td-type">string</td><td class="td-remark">@mock=999919919119a1129</td></tr><tr class="tr-level-3"><td class="td-name">------劳模荣誉称号</td><td class="td-identifier">honoraryTitle</td><td class="td-type">string</td><td class="td-remark">@mock=武汉敬业代表</td></tr><tr class="tr-level-3"><td class="td-name">------民族</td><td class="td-identifier">nation</td><td class="td-type">string</td><td class="td-remark">@mock=汉</td></tr><tr class="tr-level-2"><td class="td-name">---总共多少数据</td><td class="td-identifier">total</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-2"><td class="td-name">---当前页码</td><td class="td-identifier">currentPage</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-2"><td class="td-name">---一页几行</td><td class="td-identifier">rows</td><td class="td-type">number</td><td class="td-remark">@mock=9</td></tr></table>
+                        </div>
+                                    </div>
+                            <div class="page">
+                    <h2>4.2&nbsp;历届劳模管理（集体）</h2>
+                                            <div class="action">
+                            <h3>4.2.1&nbsp;修改历届劳模（集体）</h3>
+
+                            <h3>URL</h3>
+                            <div>/AllModelWorkerController/updateAdvancedCollective</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">联系方式</td><td class="td-identifier">contactDetail</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">负责人名称</td><td class="td-identifier">principalName</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">所属市州产业</td><td class="td-identifier">ownedCityIndustry</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">先进集体id</td><td class="td-identifier">id</td><td class="td-type">string</td><td class="td-remark">@mock=27862222611108</td></tr><tr class="tr-level-1"><td class="td-name">突出事迹</td><td class="td-identifier">outstandingDeed</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">荣誉称号</td><td class="td-identifier">honoraryTitle</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">单位名称</td><td class="td-identifier">name</td><td class="td-type">string</td><td class="td-remark">@mock=2</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">请求是否成功</td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr><tr class="tr-level-1"><td class="td-name">返回的对象</td><td class="td-identifier">value</td><td class="td-type">string</td><td class="td-remark">@mock=修改历届劳模（集体）成功</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>4.2.2&nbsp;新增历届劳模（集体）</h3>
+
+                            <h3>URL</h3>
+                            <div>/AllModelWorkerController/saveAdvancedCollective</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">荣誉称号</td><td class="td-identifier">honoraryTitle</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">名字</td><td class="td-identifier">name</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">负责人名字</td><td class="td-identifier">principalName</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">所属市州产业</td><td class="td-identifier">ownedCityIndustry</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">突出事迹</td><td class="td-identifier">outstandingDeed</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">联系方式</td><td class="td-identifier">contactDetail</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">返回的对象</td><td class="td-identifier">value</td><td class="td-type">string</td><td class="td-remark">@mock=保存历届劳模（集体）成功</td></tr><tr class="tr-level-1"><td class="td-name">请求是否成功</td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>4.2.3&nbsp;删除历届劳模（集体）</h3>
+
+                            <h3>URL</h3>
+                            <div>/AllModelWorkerController/deleteAdvancedCollective</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">要删除的id</td><td class="td-identifier">ids</td><td class="td-type">string</td><td class="td-remark">@mock=27862222611108</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">请求是否成功</td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr><tr class="tr-level-1"><td class="td-name">返回的对象</td><td class="td-identifier">value</td><td class="td-type">string</td><td class="td-remark">@mock=删除历届劳模（集体）成功</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>4.2.4&nbsp;下载历届劳模（集体）</h3>
+
+                            <h3>URL</h3>
+                            <div>/AllModelWorkerController/downloadData</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">类型，0表示个人，1表示集体</td><td class="td-identifier">type</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">要下载的id</td><td class="td-identifier">ids</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">返回的对象</td><td class="td-identifier">value</td><td class="td-type">string</td><td class="td-remark">@mock=未知运行异常</td></tr><tr class="tr-level-1"><td class="td-name">请求是否成功</td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=500</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>4.2.5&nbsp;查询历届劳模（集体）</h3>
+
+                            <h3>URL</h3>
+                            <div>/AllModelWorkerController/listAdvancedCollective</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">当前页码</td><td class="td-identifier">page</td><td class="td-type">number</td><td class="td-remark">@mock=2</td></tr><tr class="tr-level-1"><td class="td-name">单页显示记录数</td><td class="td-identifier">rows</td><td class="td-type">number</td><td class="td-remark">@mock=3</td></tr><tr class="tr-level-1"><td class="td-name">先进集体搜索条件</td><td class="td-identifier">key</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---负责人名字</td><td class="td-identifier">principalName</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-2"><td class="td-name">---公司名称</td><td class="td-identifier">name</td><td class="td-type">string</td><td class="td-remark">@mock=富士康</td></tr><tr class="tr-level-2"><td class="td-name">---新增时间</td><td class="td-identifier">additionTime</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---联系方式</td><td class="td-identifier">contactDetail</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---荣誉称号</td><td class="td-identifier">honoraryTitle</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---所属市州产业</td><td class="td-identifier">ownedCityIndustry</td><td class="td-type">string</td><td class="td-remark"></td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">返回的对象</td><td class="td-identifier">value</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---总记录数</td><td class="td-identifier">total</td><td class="td-type">number</td><td class="td-remark">@mock=5</td></tr><tr class="tr-level-2"><td class="td-name">---每页记录数</td><td class="td-identifier">rows</td><td class="td-type">number</td><td class="td-remark">@mock=3</td></tr><tr class="tr-level-2"><td class="td-name">---数据</td><td class="td-identifier">data</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-3"><td class="td-name">------荣誉称号</td><td class="td-identifier">honoraryTitle</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;良心企业&#39;,&#39;良心企业&#39;)</td></tr><tr class="tr-level-3"><td class="td-name">------新增记录的时间</td><td class="td-identifier">additionTime</td><td class="td-type">number</td><td class="td-remark">@mock=$order(1502294400000,1502380800000)</td></tr><tr class="tr-level-3"><td class="td-name">------历届劳模集体id</td><td class="td-identifier">id</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;23682330041928&#39;,&#39;24146138769577&#39;)</td></tr><tr class="tr-level-3"><td class="td-name">------名字</td><td class="td-identifier">name</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;富士康&#39;,&#39;富士康&#39;)</td></tr><tr class="tr-level-3"><td class="td-name">------突出事迹</td><td class="td-identifier">outstandingDeed</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;。2016年净收入为381.79亿元人民币（54.99亿美元），在线游戏净收入为279.80亿元人民币（40.30亿美元），广告服务净收入为21.52亿元人民币（3.10亿美元），邮箱、电商及其他业务的净收入为80.46亿元人民币（11.59亿美元）。&#39;,&#39;现拥有120余万员工及全球顶尖客户群。&#39;)</td></tr><tr class="tr-level-3"><td class="td-name">------是否当届</td><td class="td-identifier">isCurrent</td><td class="td-type">number</td><td class="td-remark">@mock=$order(1,1)</td></tr><tr class="tr-level-3"><td class="td-name">------所属市州产业</td><td class="td-identifier">ownedCityIndustry</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;四川省成都市轻工业&#39;,&#39;四川省成都市轻工业&#39;)</td></tr><tr class="tr-level-3"><td class="td-name">------负责人名字</td><td class="td-identifier">principalName</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;1&#39;,&#39;1&#39;)</td></tr><tr class="tr-level-3"><td class="td-name">------联系方式</td><td class="td-identifier">contactDetail</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;123456&#39;,&#39;123456&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---总页数</td><td class="td-identifier">pages</td><td class="td-type">number</td><td class="td-remark">@mock=2</td></tr><tr class="tr-level-2"><td class="td-name">---当前页码</td><td class="td-identifier">currentPage</td><td class="td-type">number</td><td class="td-remark">@mock=2</td></tr><tr class="tr-level-1"><td class="td-name">请求是否成功</td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr></table>
+                        </div>
+                                    </div>
+                    </div>
+            <div class="module">
+            <h1>5&nbsp;数据字典管理</h1>
+                            <div class="page">
+                    <h2>5.1&nbsp;数据字典分类</h2>
+                                            <div class="action">
+                            <h3>5.1.1&nbsp;获取所有数据字典</h3>
+
+                            <h3>URL</h3>
+                            <div>/DataDir/getDataDir</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">value|3</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">name</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;jl&#39;,&#39;klkl&#39;,&#39;第三个&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">id</td><td class="td-type">number</td><td class="td-remark">@mock=$order(1,2,3)</td></tr></table>
+                        </div>
+                                    </div>
+                            <div class="page">
+                    <h2>5.2&nbsp;数据字典明细管理</h2>
+                                            <div class="action">
+                            <h3>5.2.1&nbsp;修改明细信息</h3>
+
+                            <h3>URL</h3>
+                            <div>/DataDir/modify</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">content</td><td class="td-type">string</td><td class="td-remark">@mock=0814TEST</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">dataDir</td><td class="td-type">number</td><td class="td-remark">@mock=2</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">id</td><td class="td-type">number</td><td class="td-remark">@mock=13</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">value</td><td class="td-type">string</td><td class="td-remark">@mock=修改数据字典明细信息成功！</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>5.2.2&nbsp;删除明细信息</h3>
+
+                            <h3>URL</h3>
+                            <div>/DataDir/delete</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">删除的明细id字符串</td><td class="td-identifier">ids</td><td class="td-type">string</td><td class="td-remark">@mock=&quot;1,2,3&quot;</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">value</td><td class="td-type">string</td><td class="td-remark">@mock=操作成功！成功删除1条数据</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>5.2.3&nbsp;新增明细信息</h3>
+
+                            <h3>URL</h3>
+                            <div>/DataDir/insert</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">content</td><td class="td-type">string</td><td class="td-remark">@mock=no</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">dataDir</td><td class="td-type">number</td><td class="td-remark">@mock=2</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">value</td><td class="td-type">string</td><td class="td-remark">@mock=新增数据字典明细信息成功！</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>5.2.4&nbsp;获取明细信息</h3>
+
+                            <h3>URL</h3>
+                            <div>/DataDir/getDetail</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">dataDir</td><td class="td-type">number</td><td class="td-remark">@mock=2</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">code</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">value</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">id</td><td class="td-type">number</td><td class="td-remark">@mock=20</td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">content</td><td class="td-type">string</td><td class="td-remark">@mock=no</td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">dataDir</td><td class="td-type">number</td><td class="td-remark">@mock=2</td></tr></table>
+                        </div>
+                                    </div>
+                    </div>
+    </div>
+</body>
+</html>

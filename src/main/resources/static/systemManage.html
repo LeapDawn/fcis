@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>总工会劳模管理系统</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+</head>
+<body>
+	<div class="bodyClass">
+		<header>
+			<div class="container" style="width:100%;">
+				<div class="col-lg-6 col-xs-6" style="width:47%;height:45px;">
+					<h2><span class="glyphicon glyphicon-leaf"></span>总工会劳模管理系统<small>Management System</small><span id="logout" class="btn btn-default btn-sm" style="margin-left:10px;">退出</span></h2>
+				</div>		
+				<div class="col-lg-6 col-xs-6" style="width:53%;">
+					<ul class="nav nav-pills" style="height:40px;margin-top:75px;margin-bottom:2px;font-size:15px;">
+					  <li role="presentation"><a href="index.html">首页</a></li>
+					  <li role="presentation"  class="active"><a href="systemManage.html">系统管理</a></li>
+					  <li role="presentation"><a href="historyInfoPerson.html">历届劳模信息管理</a></li>
+					  <li role="presentation"><a href="advancedPersonManage.html">先进个人信息管理</a></li>
+					  <li role="presentation"><a href="advancedGroupManage.html">先进集体信息管理</a></li>
+					</ul>
+				</div>				
+			</div>
+		</header>
+		<div class="contentBody" style="width:95%;margin:0px auto;position:relative;">
+			<div class="bodyNav" style="margin-top:20px;">
+				<ul class="nav nav-pills nav-justified" role="tablist">
+					  	<li role="presentation" class="active"><a href="#1" role="tab" data-toggle="tab">用户信息管理</a></li>
+					  	<li role="presentation"><a href="#2" role="tab" data-toggle="tab">数据字典管理</a></li>
+					  	<li role="presentation"><a href="#3" role="tab" data-toggle="tab">数据备份</a></li>
+					  	<li role="presentation"><a href="#4" role="tab" data-toggle="tab">数据还原</a></li>
+				</ul>
+			</div>
+			<div id="myTabContent" class="tab-content">
+				<div id="1" style="padding:10px;" class="tab-pane fade in active">
+					<div style="overflow:hidden">
+						<!-- 用户信息管理 -->
+						<div class="contentTable" style="margin-top:40px;">
+							<table class="table table-condensed" id="tableTab_1">
+								<thead>
+									<tr>
+										<th></th>
+										<th>账号</th>
+										<th>姓名</th>
+										<th>性别</th>
+										<th>身份证号</th>
+										<th>电话</th>
+										<th>邮箱</th>
+										<th>所属工会</th>
+										<th>权限</th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
+								</tbody>
+								<tfoot>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td><button class="btn btn-primary addBtnUser" data-toggle="modal" data-target="#addModal">新增</button></td>
+									<td><button class="btn btn-default deleteBtnUser">删除</button></td>
+									<td></td>
+								</tfoot>
+							</table>
+						</div>
+					</div>
+					<div class="pageNav" style="margin:0 auto;width:19%;" id="pageNavbar">
+						<!-- 分页 -->
+					</div>	
+				</div>
+				<div id="2" style="padding:20px;" class="tab-pane fade">
+					<div style="overflow:hidden">
+						<div class="contentTable">
+							<table class="table table-condensed" id="tableTab_2">
+								<thead>
+									<tr>
+										<th>数据字典ID</th>
+										<th>数据字典名称</th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div id="3" style="padding:20px;" class="tab-pane fade">
+					<div style="overflow:hidden">
+						<!-- 数据备份 -->
+						<form>
+							<div class="form-horizontal">
+								<div class="form-group" style="margin-left:330px;">
+									<label class="control-form col-sm-3" style="text-align: right;">请输入备份文件名:</label>
+									<div class="col-sm-3">
+										<input type="text" class="form-control" id="filename">
+									</div>
+									<input type="button" class="btn btn-default" id="addBackup" style="margin-left:20px" value="备份数据">
+								</div>
+							</div>
+						</form>
+						<div class="contentTable">
+							<table class="table table-condensed" id="tableTab_3">
+								<thead>
+									<tr>
+									    <th></th>
+										<th>文件名</th>
+										<th>备份时间</th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
+
+								</tbody>
+							</table>
+						</div>
+
+					</div>
+				</div>
+				<div id="4" style="padding:20px;" class="tab-pane fade">
+					<div style="overflow:hidden">
+						<!-- 数据还原 -->
+						<div class="contentTable">
+							<table class="table table-condensed" id="tableTab_3">
+								<thead>
+									<tr>
+									    <th></th>
+										<th>文件名</th>
+										<th>备份时间</th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
+
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="aboutUs" style="width:80%;margin:0 auto;position:relative;text-align:center;">
+			<span class="box-title-line"></span>	
+			<h3>系统维护</h3>
+			<p>欢迎使用本系统</p>
+			<p>Welcome to the system.</p>
+		</div>
+	</div>
+	<!-- Modal -->
+	<!-- User Modal -->
+	<div class="modal fade" tabindex="-1" role="dialog" id="userModal">
+	  	<div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title">编辑窗口</h4>
+		      </div>
+		      <div class="modal-body">
+		        <form>
+		        	<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-form col-sm-3">账号</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="userName" readonly="readonly">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-form col-sm-3">姓名</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="yourName">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-form col-sm-3">性别</label>
+							<div class="col-sm-3">
+								<select class="form-control" id="sex">
+									<option>男</option>
+									<option>女</option>
+								</select>
+							</div>
+						</div>	
+						<div class="form-group">
+							<label class="control-form col-sm-3">身份证号</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="yourId">
+							</div>
+						</div>	
+						<div class="form-group">
+							<label class="control-form col-sm-3">电话</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="telefon">
+							</div>
+						</div>		
+						<div class="form-group">
+							<label class="control-form col-sm-3">邮箱</label>
+							<div class="col-sm-8">
+								<input type="e-mail" class="form-control" id="yourMail">
+							</div>
+						</div>	
+						<div class="form-group">
+							<label class="control-form col-sm-3">所属工会</label>
+							<div class="col-sm-5">
+								<select class="form-control" id="factory"></select>
+							</div>
+						</div>	
+						<div class="form-group">
+							<label class="control-form col-sm-3">权限</label>
+							<div class="col-sm-5">
+								<select class="form-control" disabled="disabled" id="chooseRight">
+									<option>录入</option>
+									<option>特殊信息查询</option>
+									<option>管理员</option>
+								</select>
+							</div>
+						</div>	        		
+		        	</div>
+		        </form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal" id="editCancel">取消</button>
+		        <button type="button" class="btn btn-primary" id="editSave">保存</button>
+		      </div>
+		    </div><!-- /.modal-content -->
+	    </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<!-- Add Modal -->
+	<div class="modal fade" tabindex="-1" role="dialog" id="addModal">
+		<div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title">新增窗口</h4>
+		      </div>
+		      <div class="modal-body">
+		        <form>
+		        	<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-form col-sm-3">账号</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="addUser">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-form col-sm-3">密码</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="newPaswd">
+							</div>
+						</div>	
+						<div class="form-group">
+							<label class="control-form col-sm-3">姓名</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="addName">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-form col-sm-3">性别</label>
+							<div class="col-sm-3">
+								<select class="form-control" id="addUserGender">
+									<option>男</option>
+									<option>女</option>
+								</select>
+							</div>
+						</div>	
+						<div class="form-group">
+							<label class="control-form col-sm-3">身份证号</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="addId">
+							</div>
+						</div>	
+						<div class="form-group">
+							<label class="control-form col-sm-3">电话</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="addTelefon">
+							</div>
+						</div>		
+						<div class="form-group">
+							<label class="control-form col-sm-3">邮箱</label>
+							<div class="col-sm-8">
+								<input type="e-mail" class="form-control" id="addMail">
+							</div>
+						</div>	
+						<div class="form-group">
+							<label class="control-form col-sm-3">所属工会</label>
+							<div class="col-sm-5">
+								<select class="form-control" id="addUserOwnedAssociation">
+								</select>
+							</div>
+						</div>	
+						<div class="form-group">
+							<label class="control-form col-sm-3">权限</label>
+							<div class="col-sm-3">
+								<select class="form-control" id="addUserFunction">
+									<option>录入</option>
+									<option>特殊信息查看</option>
+									<option>管理员</option>
+								</select>
+							</div>
+						</div>	        		
+		        	</div>
+		        </form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal" id="addCancel">取消</button>
+		        <button type="button" class="btn btn-primary" id="addSave">保存</button>
+		      </div>
+		    </div><!-- /.modal-content -->
+	    </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<!-- dataDir detail Modal -->
+	<div class="modal fade" tabindex="-1" role="dialog" id="dataDirModal">
+	  	<div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title">数据字典明细信息</h4>
+		      </div>
+		      <div class="modal-body">
+		        <div class="contentTable">
+		        	<table class="table table-condensed" id="dirDetailTable">
+						<thead>
+							<tr>
+								<th></th>
+								<th>数据字典详情id</th>
+								<th>数据字典内容</th>
+								<th>所属数据字典编号</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<!-- 数据字典目录下的明细信息列表 -->
+						</tbody>
+						<tfoot>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td><button class="btn btn-default" id="dirDetailDel">删除</button></td>
+							<td><button class="btn btn-default" id="dirDetailAdd" data-toggle="modal" data-target="#addDetailModal">新增</button></td>
+						</tfoot>
+					</table>
+		       	</div>
+		        </div>
+		        <div class="modal-footer">
+		        	<button type="button" class="btn btn-primary" data-dismiss="modal" id="dataDirClose">关闭</button>
+		      </div>
+		    </div><!-- /.modal-content -->
+	 	</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<!-- editDetailModal -->
+	<div class="modal fade" tabindex="-1" role="dialog" id="editDetailModal">
+	  	<div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title">编辑窗口</h4>
+		      </div>
+		      <div class="modal-body">
+		        <form>
+		        	<div class="form-horizontal">
+		        		<div class="form-group">
+		        			<div class="col-sm-3">
+		        				<label class="control-form">数据字典详情id</label>
+		        			</div>
+		        			<div class="col-sm-8">
+		        				<input type="text" class="form-control" readonly="readonly" id="detailId">
+		        			</div>
+		        		</div>
+		        		<div class="form-group">
+		        			<div class="col-sm-3">
+		        				<label class="control-form">所属数据字典编号</label>
+		        			</div>
+		        			<div class="col-sm-8">
+		        				<button class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="dataDirId">编号选择</button>
+								<ul class="dropdown-menu" id="selectDirItem" role="menu">
+									<!-- <li></li> -->
+								</ul>
+		        			</div>
+		        		</div>
+		        		<div class="form-group">
+		        			<div class="col-sm-3">
+		        				<label class="control-form">数据字典内容</label>
+		        			</div>
+		        			<div class="col-sm-8">
+		        				<textarea rows="3" class="form-control" id="detailContent"></textarea>
+		        			</div>
+		        		</div>
+		        	</div>
+		        </form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal" id="detailCancel">取消</button>
+		        <button type="button" class="btn btn-primary" id="editDetailSave">保存</button>
+		      </div>
+		    </div><!-- /.modal-content -->
+	  	</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<!-- add detail Modal -->
+	<div class="modal fade" tabindex="-1" role="dialog" id="addDetailModal">
+	  	<div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title">编辑窗口</h4>
+		      </div>
+		      <div class="modal-body">
+		        <form>
+		        	<div class="form-horizontal">
+		        		<div class="form-group">
+		        			<div class="col-sm-3">
+		        				<label class="control-form">所属数据字典编号</label>
+		        			</div>
+		        			<div class="col-sm-2">
+								<input type="text" class="form-control" id="addDirId" readonly="readonly">
+		        			</div>
+		        		</div>
+		        		<div class="form-group">
+		        			<div class="col-sm-3">
+		        				<label class="control-form">数据字典内容</label>
+		        			</div>
+		        			<div class="col-sm-8">
+		        				<!-- <input type="text" class="form-control" id="addDetailContent"> -->
+		        				<textarea rows="3" class="form-control" id="addDetailContent"></textarea>
+		        			</div>
+		        		</div>
+		        	</div>
+		        </form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal" id="detailCancel">取消</button>
+		        <button type="button" class="btn btn-primary" id="addDetailSave">保存</button>
+		      </div>
+		    </div><!-- /.modal-content -->
+	  	</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<input type="hidden" id="showPerPage" value="4">
+	<input type="hidden" id="CurrentPage" value="0"><!-- 當前頁數 -->
+	<input type="hidden" id="totalPage" value="0"><!-- 保存總頁數 -->
+
+</body>
+	<script type="text/javascript" src="js/jquery.min.js"></script>	
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/publicDom.js"></script>
+	<script type="text/javascript" src="js/logout.js"></script>
+	<script type="text/javascript" src="js/systemManagement.js"></script>
+</html>

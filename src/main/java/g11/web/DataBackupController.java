@@ -34,7 +34,7 @@ public class DataBackupController {
     @PostMapping("/backup")
     public AjaxResult backup(@RequestBody PFile PFile){
         dataBackupService.backup(PFile.getFileName());
-        return AjaxResult.success("生存备份文件[" + PFile.getFileName() + "]成功");
+        return AjaxResult.success("生成备份文件[" + PFile.getFileName() + "]成功");
     }
 
     @PostMapping("/restore")

@@ -1,7 +1,7 @@
 # Server settings
 server:
     port: 8888
-    address: 127.0.0.1
+#    address: 127.0.0.1
 
 # SPRING PROFILES
 spring:
@@ -10,10 +10,6 @@ spring:
         encoding.charset: UTF-8
         encoding.enable: true
         encoding.force: true
-    mvc:
-        view.prefix: /WEB-INF/jsp/
-        view.suffix: .jsp
-
     # DATASOURCE
     datasource:
         driverClass: com.mysql.jdbc.Driver
@@ -23,9 +19,7 @@ spring:
         hikari:
             maxLifetime: 30000
             maximumPoolSize: 15
+    resources:
+      static-locations: classpath:/static/
 mybatis:
     mapperLocations: classpath:mapper/*.xml
-
-mypops:
-    name: abc
-    age: 12

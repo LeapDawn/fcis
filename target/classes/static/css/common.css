@@ -1,0 +1,103 @@
+*{
+	padding: 0;
+	margin:0;
+/*	background-color: #cbcfd6;*/
+}
+body{
+	color: #083944;
+	margin: 0 auto;
+	font-family: '微软雅黑';
+}
+ul{
+	list-style: none;
+}
+a{
+	color: #243f56;
+}
+header{
+	background-color:rgba(170, 182, 189, 0.22);
+	border-color: rgba(0,0,0,.08);
+    box-shadow: 0 2px 3px rgba(0,0,0,.03);
+}
+.container{
+	padding:0 40px;
+}
+.page-header{
+	border: none;
+}
+.nav-pills>li>a{
+	border-radius:2px;
+	margin: 0 6px;
+	padding: 10px 9px;
+	transition: all 0.2s linear;
+}
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{
+	background-color: #083944;
+}
+.nav-pills>li>a:focus, .nav-pills>li>a:hover{
+	background-color: #083944;
+	color: white;
+	transform: scale(1.04);
+    transition: all 0.2s linear;
+
+}
+.box-title-line {
+    width:90px;
+    height: 5px;
+    margin-left:5px;
+    background: #29333e;
+    display: inline-block;
+}
+.contentBody{
+	border-color: rgba(0,0,0,.08);
+    box-shadow: 0 2px 0px rgba(0,0,0,.03);
+}
+.nav-tabs>li>a:hover {
+    border-color: #eee #eee #ddd;
+    background-color: #083944;
+    color: white;
+}
+.nav-tabs>li>a{
+	box-shadow: 0 1px 0px rgba(0,0,0,.03);
+}
+.btn-default:hover {
+    color: white;
+    background-color: #083944;
+    border-color: #083944;
+}
+.btn-primary{
+	background-color: #2d5158;
+}
+.btn-primary:hover {
+    color: white;
+    background-color: #083944;
+    border-color: #083944;
+}
+.pagination>li>a, .pagination>li>span{
+	color: #083944;
+}
+.btn-group-sm>.btn, .btn-sm {
+	background-color: #083944;
+	color: white;
+}
+.table>thead>tr>th {
+	vertical-align: middle;
+    text-align: center;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+	text-align: center;
+	vertical-align: middle;
+}
+.modal-header{
+	background-color:#2d5158;
+	color: white;
+}
+.pagination>li>a:focus, .pagination>li>a:hover, .pagination>li>span:focus, .pagination>li>span:hover {
+    background-color: #083944;
+    color: white;
+    border: 1px solid #083944;
+}
+.activePage{
+    background:#083944!important;
+    color: white !important;
+}

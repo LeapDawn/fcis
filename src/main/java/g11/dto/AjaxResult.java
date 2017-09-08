@@ -24,6 +24,6 @@ public class AjaxResult {
     }
 
     public static AjaxResult fail(int code, Object value) {
-        return new AjaxResult(code > 0 ? code : 500, value);
+        return new AjaxResult(code, value);
     }
 }

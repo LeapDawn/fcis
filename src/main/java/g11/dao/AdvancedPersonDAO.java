@@ -15,21 +15,23 @@ public interface AdvancedPersonDAO {
 
     int insertSelective(AdvancedPerson record);
 
-    List<PAdvancedPerson> selectByPrimaryKeys(String[] id);
+    List<PAdvancedPerson> selectByPrimaryKeys(@Param("array") String[] id, @Param("isCurrent") Byte isCurrent);
     List<PAdvancedPerson> selectByPrimaryKeysin(String id);
 
     List<String> selectCid(String[] id);
 
     List<PAdvancedPerson> selectByDATE(Section section);
 
-    int count(PAdvancedPerson pa);
+    int count(@Param("pa") PAdvancedPerson pa);
 
-    List<PAdvancedPerson> dividepageselect(@Param("pa") PAdvancedPerson pa,@Param("skip") int skip, @Param("rows") int rows);
+    List<PAdvancedPerson> dividepageselect(@Param("pa") PAdvancedPerson pa, @Param("skip") int skip, @Param("rows") int rows);
 
-    int upstatus(String id,int status);
+    int upstatus(@Param("id") String id, @Param("status") int status, @Param("statusinformation") String statusinformation);
 
     int overdue(String[] ids);
-    List<Map<String,?>> statics(Section section);
+    List<Map<String,?>> staticsByTitle(Section section);
+    List<Map<String,?>> staticsByNation(Section section);
+    List<Map<String,?>> staticsByCity(Section section);
     int updateByPrimaryKeySelective(AdvancedPerson record);
 
     int updateByPrimaryKey(AdvancedPerson record);

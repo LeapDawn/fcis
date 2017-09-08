@@ -3,20 +3,38 @@ package g11.web.advice;
 import g11.commons.exception.DataViolationException;
 import g11.commons.exception.ExcelException;
 import g11.commons.exception.FileException;
+import g11.commons.exception.NoLoginException;
 import g11.dto.AjaxResult;
 import org.springframework.dao.DataAccessResourceFailureException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.DuplicateKeyException;
+import org.springframework.stereotype.Controller;
 import org.springframework.transaction.CannotCreateTransactionException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
  * 全局异常处理
  */
 @ControllerAdvice
 public class GlobalExceptionHandler {
+
+    @ExceptionHandler(NoLoginException.class)
+    public AjaxResult NoLoginExceptionHandler(NoLoginException e, HttpServletResponse response) {
+//        try {
+//            response.sendRedirect("/login.html");
+//        } catch (IOException e1) {
+//            e1.printStackTrace();
+//        }
+//        return new ModelAndView("redirect:/login.html");
+        return AjaxResult.fail(-1, "该记录已经存在");
+    }
 
     @ExceptionHandler(DuplicateKeyException.class)
     @ResponseBody

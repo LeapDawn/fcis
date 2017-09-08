@@ -1,6 +1,7 @@
 package g11.dto.pageModel;
 
 import g11.model.CertificationMaterials;
+import g11.model.DataDirDetail;
 import g11.model.HistoryTitle;
 import lombok.Data;
 
@@ -60,7 +61,7 @@ public class PAdvancedPerson {
 
     private String honoraryTitle;
 
-    private Integer treatment;
+    private DataDirDetail treatment;
 
     private String name;
 
@@ -84,7 +85,7 @@ public class PAdvancedPerson {
 
     private String tel;
 
-    private Integer status;
+    private DataDirDetail status;
 
     private String statusInformation;
 
@@ -103,4 +104,6 @@ public class PAdvancedPerson {
     private CertificationMaterials certificationMaterials;
 
     private List<HistoryTitle> historyTitles;
+
+    private String error;
 }

@@ -108,28 +108,28 @@
     <include refid="Base_Column_List" />
     from advanced_collective
     where 1=1
-      <if test="ac.id != null">
-         and id = #{ac.id,jdbcType=VARCHAR}
+      <if test="ac.id != null and !&quot;&quot;.equals(ac.id.trim())">
+         and id LIKE CONCAT('%',#{ac.id,jdbcType=VARCHAR},'%' )
       </if>
-      <if test="ac.name != null">
-        and name = #{ac.name,jdbcType=VARCHAR}
+      <if test="ac.name != null and !&quot;&quot;.equals(ac.name.trim())">
+        and name LIKE CONCAT('%',#{ac.name,jdbcType=VARCHAR},'%' )
       </if>
-      <if test="ac.honoraryTitle != null">
-        and honorary_title = #{ac.honoraryTitle,jdbcType=VARCHAR}
+      <if test="ac.honoraryTitle != null and !&quot;&quot;.equals(ac.honoraryTitle.trim())">
+        and honorary_title LIKE CONCAT('%',#{ac.honoraryTitle,jdbcType=VARCHAR},'%' )
       </if>
-      <if test="ac.ownedCityIndustry != null">
-        and owned_city_industry = #{ac.ownedCityIndustry,jdbcType=VARCHAR}
+      <if test="ac.ownedCityIndustry != null and !&quot;&quot;.equals(ac.ownedCityIndustry.trim())">
+        and owned_city_industry LIKE CONCAT('%',#{ac.ownedCityIndustry,jdbcType=VARCHAR},'%' )
       </if>
-      <if test="ac.principalName != null">
-        and principal_name = #{ac.principalName,jdbcType=VARCHAR}
+      <if test="ac.principalName != null and !&quot;&quot;.equals(ac.principalName.trim())">
+        and principal_name LIKE CONCAT('%',#{ac.principalName,jdbcType=VARCHAR},'%' )
       </if>
-      <if test="ac.contactDetail != null">
-        and contact_detail = #{ac.contactDetail,jdbcType=VARCHAR}
+      <if test="ac.contactDetail != null and !&quot;&quot;.equals(ac.contactDetail.trim())">
+        and contact_detail LIKE CONCAT('%',#{ac.contactDetail,jdbcType=VARCHAR},'%' )
       </if>
-      <if test="ac.outstandingDeed != null">
-        and outstanding_deed = #{ac.outstandingDeed,jdbcType=VARCHAR}
+      <if test="ac.outstandingDeed != null and !&quot;&quot;.equals(ac.outstandingDeed.trim())">
+        and outstanding_deed LIKE CONCAT('%',#{ac.outstandingDeed,jdbcType=VARCHAR},'%' )
       </if>
-      <if test="ac.isCurrent != null">
+      <if test="ac.isCurrent != null" >
         and is_current = #{ac.isCurrent,jdbcType=TINYINT}
       </if>
       <if test="ac.additionTime != null">
@@ -165,26 +165,26 @@
     count(*)
     from advanced_collective
     where 1=1
-    <if test="id != null">
-      and id = #{id,jdbcType=VARCHAR}
+    <if test="id != null and !&quot;&quot;.equals(id.trim())">
+      and id LIKE CONCAT('%',#{id,jdbcType=VARCHAR},'%' )
     </if>
-    <if test="name != null">
-      and name = #{name,jdbcType=VARCHAR}
+    <if test="name != null and !&quot;&quot;.equals(name.trim())">
+      and name LIKE CONCAT('%',#{name,jdbcType=VARCHAR},'%' )
     </if>
-    <if test="honoraryTitle != null">
-      and honorary_title = #{honoraryTitle,jdbcType=VARCHAR}
+    <if test="honoraryTitle != null and !&quot;&quot;.equals(honoraryTitle.trim())">
+      and honorary_title LIKE CONCAT('%',#{honoraryTitle,jdbcType=VARCHAR},'%' )
     </if>
-    <if test="ownedCityIndustry != null">
-      and owned_city_industry = #{ownedCityIndustry,jdbcType=VARCHAR}
+    <if test="ownedCityIndustry != null and !&quot;&quot;.equals(ownedCityIndustry.trim())">
+      and owned_city_industry LIKE CONCAT('%',#{ownedCityIndustry,jdbcType=VARCHAR},'%' )
     </if>
-    <if test="principalName != null">
-      and principal_name = #{principalName,jdbcType=VARCHAR}
+    <if test="principalName != null and !&quot;&quot;.equals(principalName.trim())">
+      and principal_name LIKE CONCAT('%',#{principalName,jdbcType=VARCHAR},'%' )
     </if>
-    <if test="contactDetail != null">
-      and contact_detail = #{contactDetail,jdbcType=VARCHAR}
+    <if test="contactDetail != null and !&quot;&quot;.equals(contactDetail.trim())">
+      and contact_detail LIKE CONCAT('%',#{contactDetail,jdbcType=VARCHAR},'%' )
     </if>
-    <if test="outstandingDeed != null">
-      and outstanding_deed = #{outstandingDeed,jdbcType=VARCHAR}
+    <if test="outstandingDeed != null and !&quot;&quot;.equals(outstandingDeed.trim())">
+      and outstanding_deed LIKE CONCAT('%',#{outstandingDeed,jdbcType=VARCHAR},'%' )
     </if>
     <if test="isCurrent != null">
       and is_current = #{isCurrent,jdbcType=TINYINT}

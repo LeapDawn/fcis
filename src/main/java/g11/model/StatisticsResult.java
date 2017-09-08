@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 public class StatisticsResult {
 
@@ -20,34 +21,30 @@ public class StatisticsResult {
     private Byte statisticsType;
 
     public static StatisticsResult getPersonStatisticsResult(List list) throws JsonProcessingException {
-        StatisticsResult statisticsResult = new StatisticsResult();
-        statisticsResult.setResultContext(new ObjectMapper().writeValueAsString(list));
-        statisticsResult.setCreateDate(new Date());
-        statisticsResult.setStatisticsType(TYPE_PERSON);
-        return statisticsResult;
+        return init(new ObjectMapper().writeValueAsString(list), TYPE_PERSON);
+    }
+
+    public static StatisticsResult getPersonStatisticsResult(Map map) throws JsonProcessingException {
+        return init(new ObjectMapper().writeValueAsString(map), TYPE_PERSON);
     }
 
     public static StatisticsResult getPersonStatisticsResult(String jsonStr) {
-        StatisticsResult statisticsResult = new StatisticsResult();
-        statisticsResult.setResultContext(jsonStr);
-        statisticsResult.setCreateDate(new Date());
-        statisticsResult.setStatisticsType(TYPE_PERSON);
-        return statisticsResult;
+        return init(jsonStr, TYPE_PERSON);
     }
 
     public static StatisticsResult getCollectiveStatisticsResult(List list) throws JsonProcessingException {
-        StatisticsResult statisticsResult = new StatisticsResult();
-        statisticsResult.setResultContext(new ObjectMapper().writeValueAsString(list));
-        statisticsResult.setCreateDate(new Date());
-        statisticsResult.setStatisticsType(TYPE_COLLECTIVE);
-        return statisticsResult;
+        return init(new ObjectMapper().writeValueAsString(list), TYPE_COLLECTIVE);
     }
 
     public static StatisticsResult getCollectiveStatisticsResult(String jsonStr) {
+        return init(jsonStr, TYPE_COLLECTIVE);
+    }
+
+    private static StatisticsResult init(String jsonStr, Byte type) {
         StatisticsResult statisticsResult = new StatisticsResult();
-        statisticsResult.setResultContext(jsonStr);
         statisticsResult.setCreateDate(new Date());
-        statisticsResult.setStatisticsType(TYPE_COLLECTIVE);
+        statisticsResult.setResultContext(jsonStr);
+        statisticsResult.setStatisticsType(type);
         return statisticsResult;
     }
 

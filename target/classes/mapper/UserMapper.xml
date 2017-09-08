@@ -147,7 +147,12 @@
     </update>
     <update id="updatePassword" parameterType="g11.model.User">
         update user
-        set password = #{password,jdbcType=VARCHAR},
+        set password = #{password,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateAccess" parameterType="g11.model.User">
+        update user
+        set function = #{function,jdbcType=INTEGER}
         where id = #{id,jdbcType=VARCHAR}
     </update>
 

@@ -37,10 +37,9 @@
   <!-- 根据主码批量删除 -->
   <delete id="deleteByPrimaryKey" >
     delete from certification_materials
-    where id in
-    <foreach collection="list" item="id" open="(" close=")" separator=",">
+    where id =
     #{id,jdbcType=VARCHAR}
-    </foreach>
+
   </delete>
   <!-- 插入数据 -->
   <insert id="insert" parameterType="g11.model.CertificationMaterials">

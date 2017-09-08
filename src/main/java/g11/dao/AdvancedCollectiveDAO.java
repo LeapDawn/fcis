@@ -15,16 +15,16 @@ public interface AdvancedCollectiveDAO {
     int insertSelective(AdvancedCollective record);
 
     //批量删除
-    int delete(@Param("array") String[] ids,@Param("isCurrent") byte isCurrent);
+    int delete(@Param("array") String[] ids, @Param("isCurrent") byte isCurrent);
 
     //批量查找，全属性
-    List<AdvancedCollective> selectByPrimaryKeys(@Param("array") String[] ids,@Param("isCurrent")byte isCurrent);
+    List<AdvancedCollective> selectByPrimaryKeys(@Param("array") String[] ids, @Param("isCurrent") byte isCurrent);
 
     //按日期区间查找
     List<AdvancedCollective> selectByBegindateAndEnddate(Section section);
 
     //分页查询
-    List<AdvancedCollective> list(@Param("ac") AdvancedCollective ac,@Param("start") int start,@Param("rows") int rows);
+    List<AdvancedCollective> list(@Param("ac") AdvancedCollective ac, @Param("start") int start, @Param("rows") int rows);
 
     //计算符合条件的记录数
     int count(AdvancedCollective ac);
